@@ -1,0 +1,65 @@
+/* CSS declarations for entire app */
+html {
+  font-family: monospace;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 1em 2em 1em 2em;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header h1 {
+  font-size: 80px;
+  margin: 0.25em;
+  color: #000;
+  text-align: center;
+  /* border-top: solid 6px black;
+  border-bottom: solid 6px black; */
+}
+
+.infobar {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0 1em 0;
+  border-top: solid 4px black;
+  border-bottom: solid 4px black;
+}
+
+.infobar span {
+  font-size: inherit;
+  margin: 0.75em 0 0.75em 0;
+  padding: 0.25em 0 0.25em 0;
+  text-align: center;
+  flex-grow: 2;
+  border-right: solid 2px black;
+}
+
+.infobar span:first-child {
+  text-align: left;
+  margin-left: 1em;
+  flex-grow: 1;
+}
+
+.infobar span:last-child {
+  text-align: right;
+  margin-right: 1em;
+  border-right: none;
+  flex-grow: 1;
+}
+
+.articles-wrapper {
+  margin-top: 2em;
+}
+
+.article-wrapper {
+  width: 30%;
+  margin: 1em 1em 0 0;
+  padding: 0.5em;
+}

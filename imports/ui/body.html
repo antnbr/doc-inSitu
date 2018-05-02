@@ -1,0 +1,14 @@
+<!-- Set structural templating of the page and load components -->
+<body>
+  <header>
+    <h1>LE JOURNAL</h1>
+  </header>
+
+  {{> infobar}}
+
+  <div class="articles-wrapper">
+    {{#each articles}}
+      {{> article}}
+    {{/each}}
+  </div>
+</body>
