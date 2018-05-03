@@ -5,6 +5,7 @@ import { Articles } from '/imports/api/lists.js';
 import './body.html';
 import './infobar.js';
 import './article.js';
+import './addArticle.js'
 
 // set subscription to data
 Template.body.onCreated(() => {

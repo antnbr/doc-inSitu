@@ -6,7 +6,7 @@
         url('LibrisADFStd-BoldItalic.woff') format('woff'),
         url('LibrisADFStd-BoldItalic.ttf') format('truetype'),
         url('LibrisADFStd-BoldItalic.svg#LibrisADFStd-BoldItalic') format('svg');
-    font-weight: bold;
+    font-weight: 700;
     font-style: italic;
 }
 
@@ -18,7 +18,7 @@
         url('LibrisADFStd-Italic.woff') format('woff'),
         url('LibrisADFStd-Italic.ttf') format('truetype'),
         url('LibrisADFStd-Italic.svg#LibrisADFStd-Italic') format('svg');
-    font-weight: normal;
+    font-weight: 400;
     font-style: italic;
 }
 
@@ -30,7 +30,7 @@
         url('LibrisADFStd-Bold.woff') format('woff'),
         url('LibrisADFStd-Bold.ttf') format('truetype'),
         url('LibrisADFStd-Bold.svg#LibrisADFStd-Bold') format('svg');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -42,7 +42,6 @@
         url('LibrisADFStd-Regular.woff') format('woff'),
         url('LibrisADFStd-Regular.ttf') format('truetype'),
         url('LibrisADFStd-Regular.svg#LibrisADFStd-Regular') format('svg');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
-
