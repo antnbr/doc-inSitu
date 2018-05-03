@@ -25,7 +25,7 @@ Ce projet est une application d'écriture collaborative pour une expérience de 
 ## To-Do List
 + CLIENT
   - [ ] éditeur d'Articles
-  - [ ] layout du rendu des articles
+  - [ ] layout du rendu des articles
   - [ ] template *login* au début d'une session
   - [ ] resize des articles
 
