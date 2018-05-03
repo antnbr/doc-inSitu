@@ -1,10 +1,9 @@
-/* font-face import */
 @import "/imports/fonts/FantasqueSansMono/stylesheet.css";
 @import "/imports/fonts/LibrisADFStd/stylesheet.css";
 
 /* CSS Declarations */
 html {
-  font-family: monospace;
+  font-family: 'Fantasque Sans Mono' monospace;
   font-size: 15px;
   margin: 0;
   padding: 0;
@@ -15,6 +14,7 @@ body {
 }
 
 header {
+  font-family: 'Libris ADF Std';
   display: flex;
   justify-content: center;
 }
