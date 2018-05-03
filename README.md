@@ -8,7 +8,7 @@ Ce projet est une application d'écriture collaborative pour une expérience de 
   - OS X/Linux : `curl https://install.meteor.com/ | sh`
   - Windows : installer [Chocolatey](https://chocolatey.org/install), puis `choco install meteor`
 
-2. Cloner le dépôt et initialiser les modules *node*
+2. Cloner le dépôt et initialiser les modules **node**
   ```
   git clone { adresse https ou ssh }
   cd doc-insitu
