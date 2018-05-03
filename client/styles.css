@@ -4,18 +4,18 @@
 
 /* CSS Declarations */
 html {
-  font-family: 'Fantasque Sans Mono' monospace;
   font-size: 15px;
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-family: 'Fantasque Sans Mono' monospace;
   margin: 1em 2em 1em 2em;
 }
 
 header {
-  font-family: 'Libris ADF Std';
+  font-family: 'Libris ADF Std' serif;
   font-style: italic;
   display: flex;
   justify-content: center;
@@ -70,4 +70,13 @@ header h1 {
   padding: 0.5em;
   display: flex;
   flex-direction: column;
+}
+
+.button-wrapper {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  margin: inherit;
 }
