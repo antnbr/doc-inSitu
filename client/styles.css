@@ -16,6 +16,7 @@ body {
 
 header {
   font-family: 'Libris ADF Std';
+  font-style: italic;
   display: flex;
   justify-content: center;
 }
