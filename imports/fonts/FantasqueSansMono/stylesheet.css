@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Fantasque Sans Mono';
+  src: url('files/FantasqueSansMono-Italic.eot'); /* IE 9 Compatibility Mode */
+  src: url('files/FantasqueSansMono-Italic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+       url('files/FantasqueSansMono-Italic.woff2') format('woff2'),
+       url('files/FantasqueSansMono-Italic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+       url('files/FantasqueSansMono-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('files/FantasqueSansMono-Italic.svg#FantasqueSansMono-Italic') format('svg'); /* Chrome < 4, Legacy iOS */
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Fantasque Sans Mono';
+  src: url('files/FantasqueSansMono-Regular.eot'); /* IE 9 Compatibility Mode */
+  src: url('files/FantasqueSansMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+       url('files/FantasqueSansMono-Regular.woff2') format('woff2'),
+       url('files/FantasqueSansMono-Regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+       url('files/FantasqueSansMono-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('files/FantasqueSansMono-Regular.svg#FantasqueSansMono-Regular') format('svg'); /* Chrome < 4, Legacy iOS */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fantasque Sans Mono';
+  src: url('files/FantasqueSansMono-BoldItalic.eot'); /* IE 9 Compatibility Mode */
+  src: url('files/FantasqueSansMono-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+       url('files/FantasqueSansMono-BoldItalic.woff2') format('woff2'),
+       url('files/FantasqueSansMono-BoldItalic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+       url('files/FantasqueSansMono-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('files/FantasqueSansMono-BoldItalic.svg#FantasqueSansMono-BoldItalic') format('svg'); /* Chrome < 4, Legacy iOS */
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Fantasque Sans Mono';
+  src: url('files/FantasqueSansMono-Bold.eot'); /* IE 9 Compatibility Mode */
+  src: url('files/FantasqueSansMono-Bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+       url('files/FantasqueSansMono-Bold.woff2') format('woff2'),
+       url('files/FantasqueSansMono-Bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+       url('files/FantasqueSansMono-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('files/FantasqueSansMono-Bold.svg#FantasqueSansMono-Bold') format('svg'); /* Chrome < 4, Legacy iOS */
+  font-weight: 700;
+  font-style: normal;
+}
