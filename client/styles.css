@@ -1,4 +1,8 @@
-/* CSS declarations for entire app */
+/* font-face import */
+@import "/imports/fonts/FantasqueSansMono/stylesheet.css";
+@import "/imports/fonts/LibrisADFStd/stylesheet.css";
+
+/* CSS Declarations */
 html {
   font-family: monospace;
   font-size: 15px;
@@ -63,4 +67,5 @@ header h1 {
   margin: 1em 1em 0 0;
   padding: 0.5em;
   display: flex;
+  flex-direction: column;
 }
