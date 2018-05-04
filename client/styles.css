@@ -1,6 +1,5 @@
 /* CSS Declarations */
 html {
-
   margin: 0;
   padding: 0;
 }
@@ -8,7 +7,7 @@ html {
 body {
   font-family: 'Fantasque Sans Mono';
   font-size: 15px;
-  margin: 1em 2em 1em 2em;
+  margin: 1em 2em 2em 2em;
 }
 
 header {
@@ -77,15 +76,25 @@ header h1 {
   bottom: 0;
   z-index: 1;
 
-  margin: inherit;
-  box-shadow: 11px 11px blue, 10px 10px white;
+  --m-right: inherit;
+  --m-bottom: inherit;
+  margin-right: calc(var(--m-right) + 6px);
+  margin-bottom: calc(var(--m-bottom) + 6px);
+  box-shadow:
+    1px 1px blue,
+    2px 2px blue,
+    3px 3px blue,
+    4px 4px blue,
+    5px 5px blue,
+    6px 6px blue;
 }
 
 .button-wrapper button {
   background-color: inherit;
+  font-family: inherit;
   color: blue;
   border: solid blue 4px;
 
-  font-size: 20px;
+  font-size: 15px;
   padding: 1em 1.5em 1em 1.5em;
 }
