@@ -1,7 +1,32 @@
 <template name="editor">
-  <p>Editor</p>
+  <div class="editorForm">
+    Écrire un article :<br/>
+    {{#if titleIsValid}}
+      <label>Veuillez indiquez un titre.</label>
+    {{/if}}
+    <div class="{{#if titleIsValid}}title{{else}}noTitle{{/if}}">
+      <input type="text" id="title" placeholder="Entrez votre titre...">
+    </div>
 
-  <div class="button-wrapperc">
-    <button type="button" id="ev_closeEditArticle">Annuler</button>
+    {{#if usernameIsValid}}
+      <label>Veuillez indiquez un nom d'auteur.</label>
+    {{/if}}
+    <div class="{{#if titleIsValid}}username{{else}}noUsername{{/if}}">
+      <input type="text" id="username" placeholder="Entrez votre nom...">
+    </div>
+
+    {{#if textIsValid}}
+      <label>Veuillez écrire du texte.</label>
+    {{/if}}
+    <div class="{{#if textIsValid}}text{{else}}noText{{/if}}" id="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+    <div class="cancelButton">
+      <button type="button" id="ev_closeEditArticle">Annuler</button>
+    </div>
+    <div class="validateButton">
+      <button type="button" id="ev_submitArticle">Valider</button>
+    </div>
   </div>
 </template>
