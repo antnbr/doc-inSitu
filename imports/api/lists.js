@@ -1,21 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import { check } from 'meteor/check';;
+import { check } from 'meteor/check';
 
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
-
-// --- Globally used functions --- //
-export function getFrDate() {
-  var d = new Date();
-  var jours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-  var mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-              "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-  // ---------------------------------------------------------------------------------------------- //
-  var date = jours[d.getDay()] + " " + d.getDate() + " " + mois[d.getMonth()] + " " + d.getFullYear();
-  // console.log(date);
-  return date;
-}
 
 // --- set methods & publishing rights --- //
 if (Meteor.isServer) {
@@ -33,10 +21,10 @@ if (Meteor.isServer) {
 
       Articles.insert({
         title,
-        text,
         username,
+        text,
         createdAt: getFrDate() // current time
       });
-    }
+    },
   });
 }
