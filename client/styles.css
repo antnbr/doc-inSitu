@@ -75,11 +75,9 @@ header h1 {
   right: 0;
   bottom: 0;
   z-index: 1;
-
-  --m-right: inherit;
-  --m-bottom: inherit;
-  margin-right: calc(var(--m-right) + 6px);
-  margin-bottom: calc(var(--m-bottom) + 6px);
+  
+  margin-right: calc(2em + 6px);
+  margin-bottom: calc(2em + 6px);
   box-shadow:
     1px 1px blue,
     2px 2px blue,
