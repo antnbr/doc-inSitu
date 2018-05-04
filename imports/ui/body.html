@@ -5,13 +5,18 @@
   </header>
 
   {{> infobar}}
-
-  <div class="articles-wrapper">
-    {{#each articles}}
-      {{> article}}
-    {{/each}}
-  </div>
-
-  {{> addArticle}}
-  
+  {{> content}}
 </body>
+
+<template name="content">
+  {{#if page "articles"}}
+    {{> renderArticles}}
+  {{/if}}
+  {{#if page "edit"}}
+    {{> editor}}
+  {{/if}}
+  {{#if page "print"}}
+    {{> print}}
+  {{/if}}
+  {{> addArticle}}
+</template>

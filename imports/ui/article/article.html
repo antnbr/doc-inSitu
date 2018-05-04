@@ -1,3 +1,11 @@
+<template name="renderArticles">
+  <div class="articles-wrapper">
+    {{#each articles}}
+      {{> article}}
+    {{/each}}
+  </div>
+</template>
+
 <template name="article">
   <div class="article-wrapper">
     <span class="title">{{title}}</span>
