@@ -1,25 +1,25 @@
 <template name="editor">
   <div class="editorForm">
     Écrire un article :<br/>
-    {{#if titleIsValid}}
+    {{#unless titleIsValid}}
       <label>Veuillez indiquez un titre.</label>
-    {{/if}}
-    <div class="{{#if titleIsValid}}title{{else}}noTitle{{/if}}">
+    {{/unless}}
+    <div class="{{#unless titleIsValid}}title{{else}}noTitle{{/unless}}">
       <input type="text" id="title" placeholder="Entrez votre titre...">
     </div>
 
-    {{#if usernameIsValid}}
+    {{#unless usernameIsValid}}
       <label>Veuillez indiquez un nom d'auteur.</label>
-    {{/if}}
-    <div class="{{#if titleIsValid}}username{{else}}noUsername{{/if}}">
+    {{/unless}}
+    <div class="{{#unless titleIsValid}}username{{else}}noUsername{{/unless}}">
       <input type="text" id="username" placeholder="Entrez votre nom...">
     </div>
 
-    {{#if textIsValid}}
+    {{#unless textIsValid}}
       <label>Veuillez écrire du texte.</label>
-    {{/if}}
-    <div class="{{#if textIsValid}}text{{else}}noText{{/if}}" id="text">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    {{/unless}}
+    <div class="{{#unless textIsValid}}text{{else}}noText{{/unless}}">
+      <textarea id="text" rows="8" cols="80"></textarea>
     </div>
 
     <div class="cancelButton">
