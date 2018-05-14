@@ -5,6 +5,6 @@ import './article.html';
 
 Template.renderArticles.helpers({
   articles() {
-    return Articles.find({}, { sort: { createdAt: -1 }});
+    return Articles.find({});
   }
 });
