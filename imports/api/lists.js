@@ -5,6 +5,7 @@ import { moment } from 'meteor/momentjs:moment';
 
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
+export const Contributors = new Mongo.Collection('contributors');
 
 // --- set methods & publishing rights --- //
 if (Meteor.isServer) {
@@ -17,12 +18,12 @@ if (Meteor.isServer) {
   Meteor.methods({
     'articles.insert': (title, username, text) => {
       check(title, String);
-      check(username, String);
+      // check(username, String);
       check(text, String);
 
       Articles.insert({
         title,
-        username,
+        // username,
         text,
         createdAt: moment().format("DD-MM-YY HH:mm") // current time
       });
