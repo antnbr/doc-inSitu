@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { moment } from 'meteor/momentjs:moment';
 
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
@@ -14,16 +15,16 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    'articles.insert': (title, text, username) => {
+    'articles.insert': (title, username, text) => {
       check(title, String);
-      check(text, String);
       check(username, String);
+      check(text, String);
 
       Articles.insert({
         title,
         username,
         text,
-        createdAt: getFrDate() // current time
+        createdAt: moment().format("DD-MM-YY HH:mm") // current time
       });
     },
   });
