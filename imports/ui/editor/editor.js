@@ -1,7 +1,8 @@
-import { Meteor } from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
-import { Articles } from '/imports/api/lists.js';
+// import { Articles } from '/imports/api/lists.js';
 import './editor.html';
 import { mode } from '../body.js';
 
@@ -9,23 +10,20 @@ import { mode } from '../body.js';
 
 Template.editor.onCreated(function() {
   // set reactive vars to check if field is empty
-  this.isValid = new ReactiveVar({
-    title: true,
-    username: true,
-    text: true
-  });
+  this.titleIsValid = new ReactiveVar(true);
+  this.usernameIsValid = new ReactiveVar(true);
+  this.textIsValid = new ReactiveVar(true);
 });
 
 Template.editor.helpers({
-  // since we don't want to use {{#unless}}, helpers return opposite results.
   titleIsValid() {
-    return !Template.instance().isValid.get().title;
+    return Template.instance().titleIsValid.get();
   },
   usernameIsValid() {
-    return !Template.instance().isValid.get().username;
+    return Template.instance().usernameIsValid.get();
   },
   textIsValid() {
-    return !Template.instance().isValid.get().text;
+    return Template.instance().textIsValid.get();
   }
 })
 
