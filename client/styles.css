@@ -58,6 +58,7 @@ header h1 {
 
 .articles-wrapper {
   margin-top: 2em;
+  display: flex;
 }
 
 .article-wrapper {
@@ -75,7 +76,7 @@ header h1 {
   right: 0;
   bottom: 0;
   z-index: 1;
-  
+
   margin-right: calc(2em + 6px);
   margin-bottom: calc(2em + 6px);
   box-shadow:
