@@ -35,20 +35,21 @@ Template.editor.events({
   'click #ev_submitArticle': (event, instance) => {
     var title = instance.find('#title').value.trim();
     var username = instance.find('#username').value.trim();
-    var text = instance.find('#text').innerText;
-    instance.isValid.set({
-      title: true,
-      username: true,
-      text: true
-    });
+    var text = instance.find('#text').value.trim();
+    instance.titleIsValid.set(true);
+    instance.usernameIsValid.set(true);
+    instance.textIsValid.set(true);
 
     if (title === '') {
-      instance.isValid.set({ title: false });
-    } else if (username === '') {
-      instance.isValid.set({ username: false });
-    } else if (text === '') {
-      instance.isValid.set({ text: false });
-    } else {
+      instance.titleIsValid.set(false);
+    }
+    if (username === '') {
+      instance.usernameIsValid.set(false);
+    }
+    if (text === undefined || text === '') {
+      instance.textIsValid.set(false);
+    }
+    if (title !== '' && username !== '' && text !== '') {
       Meteor.call('articles.insert', title, username, text);
       mode.set("articles");
     }
