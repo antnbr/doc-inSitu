@@ -79,6 +79,7 @@ header h1 {
 
   margin-right: calc(2em + 6px);
   margin-bottom: calc(2em + 6px);
+  background-color: white;
   box-shadow:
     1px 1px blue,
     2px 2px blue,
