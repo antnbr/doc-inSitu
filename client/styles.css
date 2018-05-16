@@ -98,3 +98,8 @@ header h1 {
   font-size: 15px;
   padding: 1em 1.5em 1em 1.5em;
 }
+
+.editorForm {
+  display: inline-flex;
+  flex-direction: column;
+}
