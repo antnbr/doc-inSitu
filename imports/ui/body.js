@@ -8,13 +8,12 @@ import './infobar/infobar.js';
 import './buttons/addArticle.js';
 import './article/article.js';
 import './editor/editor.js';
-import './userInfo/userInfo.js';
 // import './print/print.js';
 
 export let mode = new ReactiveVar("articles");
 
 // set subscription to data
-Template.body.onCreated(() => {
+Template.body.onCreated(function() {
   Meteor.subscribe('articles');
 });
 
