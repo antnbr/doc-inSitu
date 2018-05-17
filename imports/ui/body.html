@@ -14,10 +14,12 @@
   {{/if}}
   {{#if page "edit"}}
     {{> editor}}
-    {{> userInfo}}
+  {{/if}}
+  {{#if page "scan"}}
+    {{> scanner}}
   {{/if}}
   {{#if page "print"}}
     {{> print}}
   {{/if}}
-  {{> addArticle}}
+  {{> buttons}}
 </template>
