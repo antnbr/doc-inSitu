@@ -1,0 +1,11 @@
+<template name="scanner">
+  <div class="scanner-wrapper">
+    <div id="errorMsg"></div>
+    <video id="gum-local"></video>
+    <button type="button" id="ev_take">Capture !</button>
+    {{#if captureIsOn}}
+      <button type="button" id="ev_save">Enregistrer !</button>
+    {{/if}}
+    <canvas id="canvas"></canvas>
+  </div>
+</template>
