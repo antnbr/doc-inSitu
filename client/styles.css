@@ -77,8 +77,13 @@ header h1 {
   bottom: 0;
   z-index: 1;
 
-  margin-right: calc(2em + 6px);
-  margin-bottom: calc(2em + 6px);
+  margin-right: 2em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.add-wrapper {
   background-color: white;
   box-shadow:
     1px 1px blue,
@@ -89,11 +94,55 @@ header h1 {
     6px 6px blue;
 }
 
-.button-wrapper button {
+.add-wrapper button {
   background-color: inherit;
   font-family: inherit;
   color: blue;
   border: solid blue 4px;
+
+  font-size: 15px;
+  padding: 1em 1.5em 1em 1.5em;
+}
+
+.scan-wrapper {
+  margin-right: inherit;
+  background-color: white;
+  box-shadow:
+    1px 1px red,
+    2px 2px red,
+    3px 3px red,
+    4px 4px red,
+    5px 5px red,
+    6px 6px red;
+}
+
+.scan-wrapper button {
+  background-color: inherit;
+  font-family: inherit;
+  color: red;
+  border: solid red 4px;
+
+  font-size: 15px;
+  padding: 1em 1.5em 1em 1.5em;
+}
+
+.cancel-wrapper {
+  margin-right: inherit;
+  background-color: white;
+  box-shadow:
+    1px 1px springgreen,
+    2px 2px springgreen,
+    3px 3px springgreen,
+    4px 4px springgreen,
+    5px 5px springgreen,
+    6px 6px springgreen;
+}
+
+.cancel-wrapper button {
+  background-color: inherit;
+  font-family: inherit;
+  color: springgreen;
+  border: solid springgreen 4px;
 
   font-size: 15px;
   padding: 1em 1.5em 1em 1.5em;
