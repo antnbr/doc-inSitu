@@ -47,27 +47,18 @@ Template.editor.events({
     const authname = t.authname.value.trim();
     const authinfo = t.authinfo.value.trim();
 
-    // const checkAuthnames = function() {
-    //   Meteor.call('articles.checkAuthname', authname)
-    // }
-
+    // --- reset reactive-var states --- //
     instance.titleIsValid.set(true);
     instance.authnameIsValid.set(true);
     instance.textIsValid.set(true);
     instance.authinfoIsValid.set(true);
 
-    if (title === '') {
-      instance.titleIsValid.set(false);
-    }
-    if (text === '') {
-      instance.textIsValid.set(false);
-    }
-    if (authname === '') {
-      instance.authnameIsValid.set(false);
-    }
-    if (authinfo === '') {
-      instance.authinfoIsValid.set(false);
-    }
+    if (title === '') instance.titleIsValid.set(false);
+    if (text === '') instance.textIsValid.set(false);
+    if (authname === '') instance.authnameIsValid.set(false);
+    if (authinfo === '') instance.authinfoIsValid.set(false);
+
+    // --- load article --- //
     if (title !== '' && text !== '' && authname !== '' && authinfo !== '') {
       Meteor.call('articles.insert', title, text, authname, authinfo);
       mode.set("articles");
