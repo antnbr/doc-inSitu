@@ -6,51 +6,70 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './editor.html';
 import { mode } from '../body.js';
 
-
-
+// --- sets Reactive Vars to check if form is fulfilled --- //
 Template.editor.onCreated(function() {
-  // set reactive vars to check if field is empty
   this.titleIsValid = new ReactiveVar(true);
-  this.usernameIsValid = new ReactiveVar(true);
   this.textIsValid = new ReactiveVar(true);
+  this.authnameIsValid = new ReactiveVar(true);
+  this.authinfoIsValid = new ReactiveVar(true);
 });
 
 Template.editor.helpers({
   titleIsValid() {
     return Template.instance().titleIsValid.get();
   },
-  usernameIsValid() {
-    return Template.instance().usernameIsValid.get();
-  },
   textIsValid() {
     return Template.instance().textIsValid.get();
-  }
+  },
+  authnameIsValid() {
+    return Template.instance().authnameIsValid.get();
+  },
+  authinfoIsValid() {
+    return Template.instance().authinfoIsValid.get();
+  },
 })
 
+// --- EVENTS --- //
 Template.editor.events({
-  'click #ev_closeEditArticle': () => {
+  // --- change mode if cancelled --- //
+  'click #ev_closeEdit': () => {
     mode.set("articles");
   },
 
-  'click #ev_submitArticle': (event, instance) => {
-    var title = instance.find('#title').value.trim();
-    var username = instance.find('#username').value.trim();
-    var text = instance.find('#text').value.trim();
+  // --- prevent 'submit' default behavior --- //
+  // --- checks if all fields are filled before collecting data --- //
+  'submit .editorForm': (event, instance) => {
+    event.preventDefault();
+
+    const t = event.target
+    const title = t.title.value.trim();
+    const text = t.text.value.trim();
+    const authname = t.authname.value.trim();
+    const authinfo = t.authinfo.value.trim();
+
+    // const checkAuthnames = function() {
+    //   Meteor.call('articles.checkAuthname', authname)
+    // }
+
     instance.titleIsValid.set(true);
-    instance.usernameIsValid.set(true);
+    instance.authnameIsValid.set(true);
     instance.textIsValid.set(true);
+    instance.authinfoIsValid.set(true);
 
     if (title === '') {
       instance.titleIsValid.set(false);
     }
-    if (username === '') {
-      instance.usernameIsValid.set(false);
-    }
-    if (text === undefined || text === '') {
+    if (text === '') {
       instance.textIsValid.set(false);
     }
-    if (title !== '' && username !== '' && text !== '') {
-      Meteor.call('articles.insert', title, username, text);
+    if (authname === '') {
+      instance.authnameIsValid.set(false);
+    }
+    if (authinfo === '') {
+      instance.authinfoIsValid.set(false);
+    }
+    if (title !== '' && text !== '' && authname !== '' && authinfo !== '') {
+      Meteor.call('articles.insert', title, text, authname, authinfo);
       mode.set("articles");
     }
   }

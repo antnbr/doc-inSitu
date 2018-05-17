@@ -1,32 +1,44 @@
 <template name="editor">
-  <div class="editorForm">
+  <form class="editorForm">
     <h2>Votre article :</h2>
+
+    <label for="title">Titre :</label>
     {{#unless titleIsValid}}
-      <label>Veuillez indiquez un titre.</label>
+      <label class="noTitle">Veuillez indiquez un titre.</label>
     {{/unless}}
-    <div class="{{#unless titleIsValid}}title{{else}}noTitle{{/unless}}">
-      <input type="text" id="title" placeholder="Entrez votre titre...">
-    </div>
+    <input
+      class="{{#unless titleIsValid}}title{{else}}noTitle{{/unless}}"
+      type="text" name="title"
+    />
 
-    {{#unless usernameIsValid}}
-      <label>Veuillez indiquez un nom d'auteur.</label>
-    {{/unless}}
-    <div class="{{#unless titleIsValid}}username{{else}}noUsername{{/unless}}">
-      <input type="text" id="username" placeholder="Entrez votre nom...">
-    </div>
-
+    <label for="text">Texte :</label>
     {{#unless textIsValid}}
       <label>Veuillez écrire du texte.</label>
     {{/unless}}
-    <div class="{{#unless textIsValid}}text{{else}}noText{{/unless}}">
-      <textarea id="text" rows="8" cols="80"></textarea>
-    </div>
+    <textarea class="{{#unless textIsValid}}text{{else}}noText{{/unless}}"
+    name="text" rows="8" cols="80"></textarea>
 
-    <div class="cancelButton">
-      <button type="button" id="ev_closeEditArticle">Annuler</button>
-    </div>
-    <div class="validateButton">
-      <button type="button" id="ev_submitArticle">Valider</button>
-    </div>
-  </div>
+    <label for="authname">Votre nom d'auteur&middot;e :</label>
+    {{#unless authnameIsValid}}
+      <label class="noUsername">Veuillez indiquez un nom d'auteur.</label>
+    {{/unless}}
+    {{#if authnameAlreadyExists}}
+      <label class="noUsername">Nom d'auteur déjà utilisé !</label>
+    {{/if}}
+    <input
+      class="{{#unless titleIsValid}}authname{{else}}noUsername{{/unless}}"
+      type="text" name="authname"
+    />
+
+    <label for="authinfo">À propos de vous :</label>
+    {{#unless authinfoIsValid}}
+      <label class="noUserinfo"></label>
+    {{/unless}}
+    <textarea class="{{#unless authinfoIsValid}}authinfo{{else}}noUserinfo{{/unless}}"
+    name="authinfo" rows="8" cols="80"></textarea>
+
+    <input class="validateButton" type="submit" value="Valider" />
+  </form>
+
+  <button class="cancelButton" type="button" id="ev_closeEdit">Annuler</button>
 </template>
