@@ -7,9 +7,10 @@ if (Meteor.isServer) {
   if (Articles.find({}).count() === 0) {
     Meteor.call('articles.insert',
       "Exemple d'article",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "Charlie",
-      "A un pull rayé blanc et rouge..."
+      "Bonjour ! Ce poste est dédié à votre parole de visiteur et/ou participant ! Vous pouvez écrire quelque lignes sur ce que vous avez fait, ressenti, entendu, envie de faire pendant ou après l'événement 'La Place Bricole'. Qu'il s'agisse d'une histoire, d'une description, d'un avis ou d'une simple humeur. Devenez alors notre journaliste le temps d'un moment convivial ! Il suffit simplement de cliquer sur 'Ajouter un article'. Si vous préférez l'écriture manuelle, pas de soucis ! Ecrivez le sur un papier et revenez le poster en cliquant sur 'Scanner un article !'. A bientôt et au plaisir de se croiser sur La Place Boivin !",
+      "L'équipe du W.O.W.",
+      "un groupe de joyeux bricoleurs...",
+      "description"
     );
   }
 }
