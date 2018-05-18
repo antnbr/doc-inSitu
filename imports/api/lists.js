@@ -49,7 +49,7 @@ if (Meteor.isServer) {
           text: text,
           authname: authname,
           authinfo: authinfo,
-          type: type
+          type: type,
           createdAt: moment().format("DD-MM-YY HH:mm") // current time
         });
       } else {
