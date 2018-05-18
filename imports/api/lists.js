@@ -14,7 +14,8 @@ const articlesSchema = new SimpleSchema({
   title: String,
   text: String,
   authname: String,
-  authinfo: String
+  authinfo: String,
+  type: String
 }).newContext();
 
 // --- set methods & publishing rights --- //
@@ -32,18 +33,23 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    'articles.insert': (title, text, authname, authinfo) => {
+    'articles.insert': (title, text, authname, authinfo, type) => {
       let article = {
         title: title,
         text: text,
         authname: authname,
-        authinfo: authinfo
+        authinfo: authinfo,
+        type: type
       };
 
       articlesSchema.validate(article);
       if (articlesSchema.isValid()) {
         Articles.insert({
-          article,
+          title: title,
+          text: text,
+          authname: authname,
+          authinfo: authinfo,
+          type: type
           createdAt: moment().format("DD-MM-YY HH:mm") // current time
         });
       } else {
