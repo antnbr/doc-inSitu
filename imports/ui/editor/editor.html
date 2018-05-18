@@ -11,6 +11,17 @@
       type="text" name="title"
     />
 
+    <label>Type :</label>
+    {{#unless typeIsValid}}
+      <label class="noType">Veuillez indiquez un type.</label>
+    {{/unless}}
+    <div class="editorRadios">
+      <input type="radio" name="type" value="story" /> Histoire
+      <input type="radio" name="type" value="description" /> Description
+      <input type="radio" name="type" value="feeling" /> Humeur
+      <input type="radio" name="type" value="thought" /> Avis
+    </div>
+    
     <label for="text">Texte :</label>
     {{#unless textIsValid}}
       <label>Veuillez écrire du texte.</label>

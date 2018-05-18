@@ -12,6 +12,7 @@ Template.editor.onCreated(function() {
   this.textIsValid = new ReactiveVar(true);
   this.authnameIsValid = new ReactiveVar(true);
   this.authinfoIsValid = new ReactiveVar(true);
+  this.typeIsValid = new ReactiveVar(true);
 });
 
 Template.editor.helpers({
@@ -27,6 +28,9 @@ Template.editor.helpers({
   authinfoIsValid() {
     return Template.instance().authinfoIsValid.get();
   },
+  typeIsValid() {
+    return Template.instance().typeIsValid.get();
+  }
 })
 
 // --- EVENTS --- //
@@ -46,21 +50,24 @@ Template.editor.events({
     const text = t.text.value.trim();
     const authname = t.authname.value.trim();
     const authinfo = t.authinfo.value.trim();
+    const type = t.type.value;
 
     // --- reset reactive-var states --- //
     instance.titleIsValid.set(true);
     instance.authnameIsValid.set(true);
     instance.textIsValid.set(true);
     instance.authinfoIsValid.set(true);
+    instance.typeIsValid.set(true);
 
     if (title === '') instance.titleIsValid.set(false);
     if (text === '') instance.textIsValid.set(false);
     if (authname === '') instance.authnameIsValid.set(false);
     if (authinfo === '') instance.authinfoIsValid.set(false);
+    if (type === '') instance.typeIsValid.set(false);
 
     // --- load article --- //
-    if (title !== '' && text !== '' && authname !== '' && authinfo !== '') {
-      Meteor.call('articles.insert', title, text, authname, authinfo);
+    if (title !== '' && text !== '' && authname !== '' && authinfo !== '' && type !== '') {
+      Meteor.call('articles.insert', title, text, authname, authinfo, type);
       mode.set("articles");
     }
   }
