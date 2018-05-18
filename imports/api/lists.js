@@ -6,7 +6,9 @@ import { moment } from 'meteor/momentjs:moment';
 
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
-export const Contributors = new Mongo.Collection('contributors');
+export const Pictures = new FS.Collection('pictures', {
+  stores: [new FS.Store.FileSystem("images", {path: "~/scansWOW"})]
+});
 
 const articlesSchema = new SimpleSchema({
   title: String,
@@ -17,10 +19,16 @@ const articlesSchema = new SimpleSchema({
 
 // --- set methods & publishing rights --- //
 if (Meteor.isServer) {
-  // This code only runs on the server
   // Allow publication of 'articles'
   Meteor.publish('articles', () => {
     return Articles.find({});
+  });
+
+  Pictures.allow({
+    'insert': function () {
+      // add custom authentication code here
+      return true;
+    }
   });
 
   Meteor.methods({
@@ -35,10 +43,7 @@ if (Meteor.isServer) {
       articlesSchema.validate(article);
       if (articlesSchema.isValid()) {
         Articles.insert({
-          title: title,
-          text: text,
-          authname: authname,
-          authinfo: authinfo,
+          article,
           createdAt: moment().format("DD-MM-YY HH:mm") // current time
         });
       } else {

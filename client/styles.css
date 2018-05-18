@@ -152,3 +152,25 @@ header h1 {
   display: inline-flex;
   flex-direction: column;
 }
+
+.scanner-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.scanner-wrapper video {
+  transform-origin: top left;
+  transform: rotate(-90deg) translate(-100%);
+}
+
+.scanner-wrapper canvas {
+  transform-origin: top left;
+  transform: rotate(-90deg) translate(-100%);
+}
+
+.scanner-wrapper.capture-button {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
