@@ -2,10 +2,12 @@
   <div class="scanner-wrapper">
     <div id="errorMsg"></div>
     <video id="gum-local"></video>
-    <button type="button" id="ev_take">Capture !</button>
-    {{#if captureIsOn}}
-      <button type="button" id="ev_save">Enregistrer !</button>
-    {{/if}}
-    <canvas id="canvas"></canvas>
+    <canvas class="{{isFilled}}" id="canvas"></canvas>
+    <div class="capture-button">
+      <button type="button" id="ev_take">Capture !</button>
+      {{#if captureIsOn}}
+        <button type="button" id="ev_save">Enregistrer !</button>
+      {{/if}}
+    </div>
   </div>
 </template>

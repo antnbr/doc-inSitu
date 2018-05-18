@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './scanner.html';
+import { Pictures } from '/imports/api/lists.js';
 
 var width = 640;
 var height = 480;
@@ -9,16 +10,18 @@ var height = 480;
 // --- set reactive-var -- //
 Template.scanner.onCreated(function() {
   this.captureIsOn = new ReactiveVar(false);
+  this.isFilled = new ReactiveVar();
 })
 
 // --- load stream into video element --- //x
 Template.scanner.onRendered(function() {
   var errorElement = document.querySelector('#errorMsg');
   var video = document.querySelector('video');
+  var canvas = document.querySelector('#canvas');
 
-  this.canvas = document.querySelector('#canvas'),
-  this.photo  = document.querySelector('#photo'),
-
+  canvas.width = width;
+  canvas.height = height;
+  this.canvas = canvas;
 
   video.style.width = document.width + 'px';
   video.style.height = document.height + 'px';
@@ -33,13 +36,6 @@ Template.scanner.onRendered(function() {
     audio: false,
     video: true
   };
-
-  var constraints = {
-       audio: false,
-       video: {
-           facingMode: 'user'
-       }
-  }
 
   function handleSuccess(stream) {
     var videoTracks = stream.getVideoTracks();
@@ -79,21 +75,35 @@ Template.scanner.onRendered(function() {
 Template.scanner.helpers({
   captureIsOn() {
     return Template.instance().captureIsOn.get();
+  },
+  isFilled() {
+    return Template.instance().isFilled.get();
   }
 });
 
 // --- Capture image of video stream --- //
 Template.scanner.events({
-  "click #ev_take": (event, template) => {
-    canvas.width = width;
-    canvas.height = height;
-
+  'click #ev_take': (event, template) => {
     canvas.getContext('2d').drawImage(template.video, 0, 0, width, height);
-    //var data = canvas.toDataURL('image/png');
-    //t.photo.setAttribute('src', data);
+    template.isFilled.set("isFilled");
+    template.captureIsOn.set(true);
   },
 
-  "click #ev_save": (event, template) => {
-    // do some stuffs...
+  'click #ev_save': (event, template) => {
+    let dataURL = canvas.toDataURL();
+    let name = moment().format("DD-MM-YY_HH-mm-ss");
+
+    var newFile = new FS.File(dataURL);
+    newFile.name(name+'.png');
+
+    Pictures.insert(newFile, function (err, fileObj) {
+      if ( err ) {
+        //handle error
+        console.log( err.message );
+      } else {
+        //get your new _id
+        console.log( fileObj._id );
+      }
+    });
   }
 });
