@@ -2,15 +2,6 @@
   <form class="editorForm">
     <h2>Votre article :</h2>
 
-    <label for="title">Titre :</label>
-    {{#unless titleIsValid}}
-      <label class="noTitle">Veuillez indiquez un titre.</label>
-    {{/unless}}
-    <input
-      class="{{#unless titleIsValid}}title{{else}}noTitle{{/unless}}"
-      type="text" name="title"
-    />
-
     <label>Type :</label>
     {{#unless typeIsValid}}
       <label class="noType">Veuillez indiquez un type.</label>
@@ -21,7 +12,16 @@
       <input type="radio" name="type" value="feeling" /> Humeur
       <input type="radio" name="type" value="thought" /> Avis
     </div>
-    
+
+    <label for="title">Titre :</label>
+    {{#unless titleIsValid}}
+      <label class="noTitle">Veuillez indiquez un titre.</label>
+    {{/unless}}
+    <input
+      class="{{#unless titleIsValid}}title{{else}}noTitle{{/unless}}"
+      type="text" name="title"
+    />
+
     <label for="text">Texte :</label>
     {{#unless textIsValid}}
       <label>Veuillez écrire du texte.</label>
@@ -48,6 +48,6 @@
     <textarea class="{{#unless authinfoIsValid}}authinfo{{else}}noUserinfo{{/unless}}"
     name="authinfo" rows="8" cols="80"></textarea>
 
-    <input class="validateButton" type="submit" value="Valider" />
+    <input class="validateButton button-wrapper" type="submit" value="Valider !" />
   </form>
 </template>

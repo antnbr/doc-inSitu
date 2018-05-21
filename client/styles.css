@@ -60,6 +60,7 @@ header h1 {
   margin-top: 2em;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .article-wrapper {
@@ -70,6 +71,22 @@ header h1 {
   flex-direction: column;
 
   border: solid black 4px;
+}
+
+.article-wrapper .title {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.article-wrapper .authname, .authinfo {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #555;
+}
+
+.article-wrapper .createdAt {
+  font-size: 0.8em;
+  color: red;
 }
 
 .button-wrapper {
@@ -109,28 +126,6 @@ header h1 {
   margin-right: inherit;
   background-color: white;
   box-shadow:
-    1px 1px red,
-    2px 2px red,
-    3px 3px red,
-    4px 4px red,
-    5px 5px red,
-    6px 6px red;
-}
-
-.scan-wrapper button {
-  background-color: inherit;
-  font-family: inherit;
-  color: red;
-  border: solid red 4px;
-
-  font-size: 15px;
-  padding: 1em 1.5em 1em 1.5em;
-}
-
-.cancel-wrapper {
-  margin-right: inherit;
-  background-color: white;
-  box-shadow:
     1px 1px springgreen,
     2px 2px springgreen,
     3px 3px springgreen,
@@ -139,7 +134,7 @@ header h1 {
     6px 6px springgreen;
 }
 
-.cancel-wrapper button {
+.scan-wrapper button {
   background-color: inherit;
   font-family: inherit;
   color: springgreen;
@@ -149,9 +144,65 @@ header h1 {
   padding: 1em 1.5em 1em 1.5em;
 }
 
+.cancel-wrapper {
+  margin-right: inherit;
+  background-color: white;
+  box-shadow:
+    1px 1px red,
+    2px 2px red,
+    3px 3px red,
+    4px 4px red,
+    5px 5px red,
+    6px 6px red;
+}
+
+.cancel-wrapper button {
+  background-color: inherit;
+  font-family: inherit;
+  color: red;
+  border: solid red 4px;
+
+  font-size: 15px;
+  padding: 1em 1.5em 1em 1.5em;
+}
+
 .editorForm {
   display: inline-flex;
   flex-direction: column;
+}
+
+.editorForm > input:not(.validateButton) {
+  padding: 0.3em;
+  border: solid 1px black;
+  background-color: #eee;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.editorForm > textarea {
+  padding: 0.3em;
+  border: solid 1px black;
+  background-color: #eee;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.editorForm .validateButton {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 1em 1.5em 1em 1.5em;
+
+  right: 12em;
+  color: green;
+  border: solid 4px green;
+  box-shadow:
+    1px 1px green,
+    2px 2px green,
+    3px 3px green,
+    4px 4px green,
+    5px 5px green,
+    6px 6px green;
 }
 
 .scanner-wrapper {
