@@ -5,6 +5,7 @@ import './article.html';
 
 Template.renderArticles.helpers({
   articles() {
+    // console.log(Articles.find({}).fetch());
     return Articles.find({});
   }
 });
