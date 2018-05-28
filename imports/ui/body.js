@@ -16,11 +16,12 @@ export let mode = new ReactiveVar("articles");
 // set subscription to data
 Template.body.onCreated(function() {
   Meteor.subscribe('articles');
+  Meteor.subscribe('pictures');
 });
 
 Template.content.helpers({
   page(currentMode) {
-    //console.log(Template.instance());
+    // console.log(Template.instance());
     return mode.get() === currentMode;
   }
 });
