@@ -1,61 +1,59 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { check } from 'meteor/check';
-import { moment } from 'meteor/momentjs:moment';
 
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
-export const Pictures = new FS.Collection('pictures', {
-  stores: [new FS.Store.FileSystem("images", {path: "~/scansWOW"})]
+export const Pictures = new Mongo.Collection('pictures');
+
+// --- Schemas for lists --- //
+const Schemas = {};
+
+Schemas.Articles = new SimpleSchema({
+  type: {
+    type: String,
+    label: "Type"
+  },
+  title: {
+    type: String,
+    label: "Title",
+    max: 100
+  },
+  text: {
+    type: String,
+    label: "Text",
+    max: 5000
+  },
+  authname: {
+    type: String,
+    label: "Author Name",
+    max: 30
+  },
+  authinfo: {
+    type: String,
+    label: "Author Info",
+    max: 200
+  },
+  timestamp: {
+    type: Date,
+    label: "Timestamp",
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date();
+      }
+    }
+  }
 });
 
-const articlesSchema = new SimpleSchema({
-  title: String,
-  text: String,
-  authname: String,
-  authinfo: String,
-  type: String
-}).newContext();
+Articles.attachSchema(Schemas.Articles);
+Pictures.attachSchema(Schemas.Articles);
 
-// --- set methods & publishing rights --- //
 if (Meteor.isServer) {
   // Allow publication of 'articles'
   Meteor.publish('articles', () => {
     return Articles.find({});
   });
-
-  Pictures.allow({
-    'insert': function () {
-      // add custom authentication code here
-      return true;
-    }
-  });
-
-  Meteor.methods({
-    'articles.insert': (title, text, authname, authinfo, type) => {
-      let article = {
-        title: title,
-        text: text,
-        authname: authname,
-        authinfo: authinfo,
-        type: type
-      };
-
-      articlesSchema.validate(article);
-      if (articlesSchema.isValid()) {
-        Articles.insert({
-          title: title,
-          text: text,
-          authname: authname,
-          authinfo: authinfo,
-          type: type,
-          createdAt: moment().format("DD-MM-YY HH:mm") // current time
-        });
-      } else {
-        console.log("insert denied :");
-        console.log(articlesSchema.validationErrors());
-      }
-    }
+  Meteor.publish('pictures', () => {
+    return Pictures.find({});
   });
 }
