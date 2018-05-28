@@ -11,8 +11,7 @@ body {
 }
 
 header {
-  font-family: 'Libris ADF Std';
-  font-style: italic;
+  font-family: 'gulax';
   display: flex;
   justify-content: center;
 }
@@ -167,24 +166,32 @@ header h1 {
 }
 
 .editorForm {
-  display: inline-flex;
+  margin: 0 10em;
+  display: flex;
   flex-direction: column;
 }
 
-.editorForm > input:not(.validateButton) {
+.editorForm input:not(.validateButton) {
   padding: 0.3em;
   border: solid 1px black;
+
   background-color: #eee;
   font-family: inherit;
   font-size: inherit;
 }
 
-.editorForm > textarea {
+.editorForm textarea {
   padding: 0.3em;
   border: solid 1px black;
   background-color: #eee;
   font-family: inherit;
   font-size: inherit;
+  resize: none;
+}
+
+.input-wrapper {
+  margin-top: 1em;
+  display: flex;
 }
 
 .editorForm .validateButton {
