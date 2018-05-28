@@ -25,4 +25,4 @@ Template.cancel.events({
   'click #ev_cancel': () => {
     mode.set("articles");
   }
-})
+});
