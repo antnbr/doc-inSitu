@@ -19,5 +19,4 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 
 momentjs:moment
 rzymek:moment-locale-fr
-cfs:standard-packages
-cfs:filesystem
+aldeed:collection2
