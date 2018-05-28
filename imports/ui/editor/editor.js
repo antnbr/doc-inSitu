@@ -67,7 +67,14 @@ Template.editor.events({
 
     // --- load article --- //
     if (title !== '' && text !== '' && authname !== '' && authinfo !== '' && type !== '') {
-      Meteor.call('articles.insert', title, text, authname, authinfo, type);
+      let article = {
+        type: type,
+        title: title,
+        text: text,
+        authname: authname,
+        authinfo: authinfo
+      }
+      Meteor.call('insertArticle', article);
       mode.set("articles");
     }
   }
