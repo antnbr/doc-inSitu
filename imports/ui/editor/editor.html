@@ -1,58 +1,37 @@
 <template name="editor">
   <form class="editorForm">
     <h2>Votre article :</h2>
-    <div class="input-wrapper">
-      <label>Type :</label>
-      {{#unless typeIsValid}}
-        <label class="noType">Veuillez indiquez un type.</label>
-      {{/unless}}
-      <div class="editorRadios">
-        <input type="radio" name="type" value="story" /> Histoire
-        <input type="radio" name="type" value="description" /> Description
-        <input type="radio" name="type" value="feeling" /> Humeur
-        <input type="radio" name="type" value="thought" /> Avis
-      </div>
+    <div class="radio-wrapper">
+      <label class="radioLab">
+        <input type="radio" name="type" checked="checked" value="histoire">
+        <span class="checkmark"><span>Histoire</span></span>
+      </label>
+      <label class="radioLab">
+        <input type="radio" name="type" value="descritpion">
+        <span class="checkmark"><span>Description</span></span>
+      </label>
+      <label class="radioLab">
+        <input type="radio" name="type" value="avis">
+        <span class="checkmark"><span>Avis</span></span>
+      </label>
+      <label class="radioLab">
+        <input type="radio" name="type" value="humeur">
+        <span class="checkmark"><span>Humeur</span></span>
+      </label>
     </div>
 
-    <div class="input-wrapper">
-      <label for="title">Titre :</label>
-      {{#unless titleIsValid}}
-        <label class="noTitle">Veuillez indiquez un titre.</label>
-      {{/unless}}
-    </div>
+    <input class="title {{#unless titleIsValid}}empty{{/unless}}"
+    type="text" name="title" maxlength="{{max 'title'}}" placeholder="Titre..."/>
 
-    <div class="input-wrapper">
-      <label for="text">Texte :</label>
-      {{#unless textIsValid}}
-        <label>Veuillez écrire du texte.</label>
-      {{/unless}}
-      <textarea class="{{#unless textIsValid}}text{{else}}noText{{/unless}}"
-      name="text" rows="8" cols="80"></textarea>
-    </div>
+    <textarea class="text {{#unless textIsValid}}empty{{/unless}}"
+    name="text" rows="10" cols="80" maxlength="{{max 'text'}}" placeholder="Texte..."></textarea>
 
-    <div class="input-wrapper">
-      <label for="authname">Votre nom d'auteur&middot;e :</label>
-      {{#unless authnameIsValid}}
-        <label class="noUsername">Veuillez indiquez un nom d'auteur.</label>
-      {{/unless}}
-      {{#if authnameAlreadyExists}}
-        <label class="noUsername">Nom d'auteur déjà utilisé !</label>
-      {{/if}}
-      <input
-        class="{{#unless titleIsValid}}authname{{else}}noUsername{{/unless}}"
-        type="text" name="authname"
-      />
-    </div>
+    <input class="authname {{#unless authnameIsValid}}empty{{/unless}}"
+    type="text" name="authname" maxlength="{{max 'authname'}}" placeholder="Votre nom d'auteur..."/>
 
-    <div class="input-wrapper">
-      <label for="authinfo">À propos de vous :</label>
-      {{#unless authinfoIsValid}}
-        <label class="noUserinfo"></label>
-      {{/unless}}
-      <textarea class="{{#unless authinfoIsValid}}authinfo{{else}}noUserinfo{{/unless}}"
-      name="authinfo" rows="8" cols="80"></textarea>
-    </div>
+    <textarea class="authinfo {{#unless authinfoIsValid}}empty{{/unless}}"
+    name="authinfo" rows="3" cols="80" maxlength="{{max 'authinfo'}}" placeholder="Quelques infos sur vous..."></textarea>
 
-    <input class="validateButton button-wrapper" type="submit" value="Valider !" />
+    {{> buttons}}
   </form>
 </template>
