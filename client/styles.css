@@ -59,15 +59,14 @@ header h1 {
   margin-top: 2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
 }
 
 .article-wrapper {
-  width: 30%;
   margin: 1em 1em 0 0;
   padding: 0.5em;
   display: flex;
   flex-direction: column;
+  white-space: pre-wrap;
 
   border: solid black 4px;
 }
@@ -77,7 +76,7 @@ header h1 {
   font-weight: bold;
 }
 
-.article-wrapper .authname, .authinfo {
+.article-wrapper.authname, .article-wrapper.authinfo {
   font-size: 0.8em;
   font-style: italic;
   color: #555;
@@ -97,11 +96,20 @@ header h1 {
   margin-right: 2em;
   margin-bottom: 2em;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
-.add-wrapper {
+.ev-button {
   background-color: white;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 1em 1.5em 1em 1.5em;
+  margin-left: 1em;
+}
+
+.ev-button#ev_add {
+  color: blue;
+  border: solid blue 4px;
   box-shadow:
     1px 1px blue,
     2px 2px blue,
@@ -111,58 +119,40 @@ header h1 {
     6px 6px blue;
 }
 
-.add-wrapper button {
-  background-color: inherit;
-  font-family: inherit;
-  color: blue;
-  border: solid blue 4px;
-
-  font-size: 15px;
-  padding: 1em 1.5em 1em 1.5em;
-}
-
-.scan-wrapper {
-  margin-right: inherit;
-  background-color: white;
+.ev-button#ev_scan {
+  color: cyan;
+  border: solid cyan 4px;
   box-shadow:
-    1px 1px springgreen,
-    2px 2px springgreen,
-    3px 3px springgreen,
-    4px 4px springgreen,
-    5px 5px springgreen,
-    6px 6px springgreen;
+    1px 1px cyan,
+    2px 2px cyan,
+    3px 3px cyan,
+    4px 4px cyan,
+    5px 5px cyan,
+    6px 6px cyan;
 }
 
-.scan-wrapper button {
-  background-color: inherit;
-  font-family: inherit;
-  color: springgreen;
-  border: solid springgreen 4px;
-
-  font-size: 15px;
-  padding: 1em 1.5em 1em 1.5em;
-}
-
-.cancel-wrapper {
-  margin-right: inherit;
-  background-color: white;
+.ev-button#ev_submitForm {
+  color: mediumspringgreen;
+  border: solid mediumspringgreen 4px;
   box-shadow:
-    1px 1px red,
-    2px 2px red,
-    3px 3px red,
-    4px 4px red,
-    5px 5px red,
-    6px 6px red;
+    1px 1px mediumspringgreen,
+    2px 2px mediumspringgreen,
+    3px 3px mediumspringgreen,
+    4px 4px mediumspringgreen,
+    5px 5px mediumspringgreen,
+    6px 6px mediumspringgreen;
 }
 
-.cancel-wrapper button {
-  background-color: inherit;
-  font-family: inherit;
-  color: red;
-  border: solid red 4px;
-
-  font-size: 15px;
-  padding: 1em 1.5em 1em 1.5em;
+.ev-button#ev_cancel {
+  color: crimson;
+  border: solid crimson 4px;
+  box-shadow:
+    1px 1px crimson,
+    2px 2px crimson,
+    3px 3px crimson,
+    4px 4px crimson,
+    5px 5px crimson,
+    6px 6px crimson;
 }
 
 .editorForm {
@@ -171,45 +161,79 @@ header h1 {
   flex-direction: column;
 }
 
-.editorForm input:not(.validateButton) {
-  padding: 0.3em;
-  border: solid 1px black;
+.radio-wrapper {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
 
-  background-color: #eee;
+.radioLab {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radioLab input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  padding: 0.5em 1em 0.5em 1em;
+  margin-right: 0.5em;
+  color: #aaa;
+  border: solid 2px #aaa;
+}
+
+.radioLab:hover input ~ .checkmark {
+  color: black;
+  border: solid 2px black;
+}
+
+.radioLab:hover input ~ .checkmark {
+  color: black;
+  border: solid 2px black;
+}
+
+.radioLab input:checked ~ .checkmark {
+  color: black;
+  border: solid 2px black;
+}
+
+.radioLab input:checked ~ .checkmark > span {
+  border-bottom: solid 2px black;
+}
+
+.editorForm > input:not(.validateButton) {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 2px #aaa;
+
+  color: black;
   font-family: inherit;
   font-size: inherit;
+}
+
+.editorForm > input.title {
+  border-bottom: none;
+}
+
+.editorForm > input.authname {
+  border-bottom: none;
+  border-top: none;
 }
 
 .editorForm textarea {
-  padding: 0.3em;
-  border: solid 1px black;
-  background-color: #eee;
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 2px #aaa;
+  overflow: hidden;
+
   font-family: inherit;
   font-size: inherit;
   resize: none;
-}
-
-.input-wrapper {
-  margin-top: 1em;
-  display: flex;
-}
-
-.editorForm .validateButton {
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: bold;
-  padding: 1em 1.5em 1em 1.5em;
-
-  right: 12em;
-  color: green;
-  border: solid 4px green;
-  box-shadow:
-    1px 1px green,
-    2px 2px green,
-    3px 3px green,
-    4px 4px green,
-    5px 5px green,
-    6px 6px green;
 }
 
 .scanner-wrapper {
