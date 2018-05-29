@@ -4,7 +4,15 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 // import { Articles } from '/imports/api/lists.js';
 import './editor.html';
+import '/imports/api/methods.js';
+import '../buttons/buttons.js';
 import { mode } from '../body.js';
+import { maxLengths } from '/imports/api/lists.js';
+
+function autoExpand(target) {
+  target.style.cssText = 'height: auto; padding: 0;';
+  target.style.cssText = 'height:' + target.scrollHeight + 'px';
+}
 
 // --- sets Reactive Vars to check if form is fulfilled --- //
 Template.editor.onCreated(function() {
@@ -30,6 +38,9 @@ Template.editor.helpers({
   },
   typeIsValid() {
     return Template.instance().typeIsValid.get();
+  },
+  max(inputName) {
+    return maxLengths[inputName];
   }
 })
 
@@ -40,32 +51,41 @@ Template.editor.events({
     mode.set("articles");
   },
 
-  // --- prevent 'submit' default behavior --- //
-  // --- checks if all fields are filled before collecting data --- //
+  'keydown textarea': (event) => {
+    autoExpand(event.target);
+  },
+
+  'onpaste textarea': (event) => {
+    autoExpand(event.target);
+  },
+
   'submit .editorForm': (event, instance) => {
+    // prevent 'submit' default behavior
     event.preventDefault();
 
     const t = event.target
+    console.log(t);
     const title = t.title.value.trim();
     const text = t.text.value.trim();
     const authname = t.authname.value.trim();
     const authinfo = t.authinfo.value.trim();
     const type = t.type.value;
 
-    // --- reset reactive-var states --- //
+    // reset reactive-var states
     instance.titleIsValid.set(true);
     instance.authnameIsValid.set(true);
     instance.textIsValid.set(true);
     instance.authinfoIsValid.set(true);
     instance.typeIsValid.set(true);
 
+    // checks if all fields are filled before collecting data
     if (title === '') instance.titleIsValid.set(false);
     if (text === '') instance.textIsValid.set(false);
     if (authname === '') instance.authnameIsValid.set(false);
     if (authinfo === '') instance.authinfoIsValid.set(false);
     if (type === '') instance.typeIsValid.set(false);
 
-    // --- load article --- //
+    // ---> load article
     if (title !== '' && text !== '' && authname !== '' && authinfo !== '' && type !== '') {
       let article = {
         type: type,
@@ -74,6 +94,7 @@ Template.editor.events({
         authname: authname,
         authinfo: authinfo
       }
+
       Meteor.call('insertArticle', article);
       mode.set("articles");
     }
