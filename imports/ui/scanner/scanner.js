@@ -91,19 +91,7 @@ Template.scanner.events({
 
   'click #ev_save': (event, template) => {
     let dataURL = canvas.toDataURL();
+    console.log(dataURL);
     let name = moment().format("DD-MM-YY_HH-mm-ss");
-
-    var newFile = new FS.File(dataURL);
-    newFile.name(name+'.png');
-
-    Pictures.insert(newFile, function (err, fileObj) {
-      if ( err ) {
-        //handle error
-        console.log( err.message );
-      } else {
-        //get your new _id
-        console.log( fileObj._id );
-      }
-    });
   }
 });
