@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 // import { ReactiveDict } from 'meteor/reactive-dict';
 
-import { Articles } from '/imports/api/lists.js';
 import './body.html';
 import './infobar/infobar.js';
 import './buttons/buttons.js';
