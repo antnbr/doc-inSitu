@@ -64,7 +64,6 @@ Template.editor.events({
     event.preventDefault();
 
     const t = event.target
-    console.log(t);
     const title = t.title.value.trim();
     const text = t.text.value.trim();
     const authname = t.authname.value.trim();
