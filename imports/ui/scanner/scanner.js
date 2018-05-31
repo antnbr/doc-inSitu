@@ -1,16 +1,18 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import base64Regex from 'base64-regex';
 
 import './scanner.html';
-import { Pictures } from '/imports/api/lists.js';
+import { mode } from '../body.js';
 
+export let isCaptured = new ReactiveVar(false);
 var width = 640;
 var height = 480;
 
 // --- set reactive-var -- //
 Template.scanner.onCreated(function() {
-  this.captureIsOn = new ReactiveVar(false);
-  this.isFilled = new ReactiveVar();
+  isCaptured.set(false);
 })
 
 // --- load stream into video element --- //x
