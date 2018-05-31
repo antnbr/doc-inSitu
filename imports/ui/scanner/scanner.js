@@ -44,14 +44,15 @@ Template.scanner.onRendered(function() {
     stream.oninactive = function() {
       console.log('Stream inactive');
     };
-    window.stream = stream; // make variable available to browser console
+    window.stream = stream;
+    localStream = stream; // make variable available to browser console
     video.srcObject = stream;
   }
 
   function handleError(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
       errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
-          constraints.video.width.exact + ' px is not supported by your device.');
+          constraints.video.height.exact + ' px is not supported by your device.');
     } else if (error.name === 'PermissionDeniedError') {
       errorMsg('Permissions have not been granted to use your camera and ' +
         'microphone, you need to allow the page access to your devices in ' +
@@ -67,31 +68,52 @@ Template.scanner.onRendered(function() {
     }
   }
 
-  navigator.mediaDevices.getUserMedia(constraints).
-      then(handleSuccess).catch(handleError);
+  function drawText(text) {
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'deeppink';
+    ctx.font = "20px Fantasque Sans Mono";
+    ctx.textAlign = "center";
+    ctx.fillText(text, canvas.width/2, canvas.height/2);
+  }
+
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then(handleSuccess).catch(handleError);
+  drawText('Enregistrez votre image !');
 });
 
-// --- Load image helpers --- //
 Template.scanner.helpers({
-  captureIsOn() {
-    return Template.instance().captureIsOn.get();
-  },
-  isFilled() {
-    return Template.instance().isFilled.get();
+  isCaptured() {
+    return isCaptured.get();
   }
 });
 
 // --- Capture image of video stream --- //
 Template.scanner.events({
-  'click #ev_take': (event, template) => {
-    canvas.getContext('2d').drawImage(template.video, 0, 0, width, height);
-    template.isFilled.set("isFilled");
-    template.captureIsOn.set(true);
+  'click #ev_capture': (ev, temp) => {
+    canvas.getContext('2d').drawImage(temp.video, 0, 0, width, height);
+    isCaptured.set(true);
   },
 
-  'click #ev_save': (event, template) => {
+  'click #ev_save': (ev, temp) => {
     let dataURL = canvas.toDataURL();
-    console.log(dataURL);
-    let name = moment().format("DD-MM-YY_HH-mm-ss");
+    let legend = temp.find('input').value.trim();
+    // console.log(dataURL);
+
+    if (base64Regex().test(dataURL)) {
+      let picture = {
+        legend: legend,
+        data: dataURL
+      };
+      Meteor.call('insertPicture', picture);
+
+      stream.getVideoTracks()[0].stop();
+      mode.set("render");
+    } else {
+      console.log("Data URL doesn't seem valid...");
+    }
+  },
+
+  'click #ev_cancel': () => {
+    stream.getVideoTracks()[0].stop();
   }
 });

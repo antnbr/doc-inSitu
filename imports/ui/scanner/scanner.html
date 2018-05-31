@@ -1,14 +1,13 @@
 <template name="scanner">
+  <span id="errorMsg"></span>
   <div class="scanner-wrapper">
-    <div id="errorMsg"></div>
     <video id="gum-local"></video>
-    <canvas class="{{isFilled}}" id="canvas"></canvas>
-    <div class="capture-button">
-      <button type="button" id="ev_take">Capture !</button>
-      {{#if captureIsOn}}
-        <input type="text" name="legend" placeholder="Légende de l'image...">
-        <button type="button" id="ev_save">Enregistrer !</button>
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+      {{#if isCaptured}}
+        <input type="text" name="legend" placeholder="Choisissez une légende" />
       {{/if}}
     </div>
   </div>
+  {{> buttons}}
 </template>
