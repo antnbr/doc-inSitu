@@ -1,31 +1,23 @@
 <template name="buttons">
   <div class="button-wrapper">
-    {{#if mode "articles"}}
-      {{> add}}
-      {{> scan}}
+    {{#if mode "render"}}
+      <button class="ev-button" type="button" id="ev_add">Ajouter un article !</button>
+      <button class="ev-button" type="button" id="ev_scan">Scanner un article !</button>
     {{/if}}
     {{#if mode "edit"}}
-      {{> validate}}
+      <button class="ev-button" type="submit" id="ev_submitForm">Valider !</button>
       {{> cancel}}
     {{/if}}
     {{#if mode "scan"}}
+      {{#if isCaptured}}
+        <button class="ev-button" type="button" id="ev_save">Enregistrer !</button>
+      {{/if}}
+      <button class="ev-button" type="button" id="ev_capture">Scan...</button>
       {{> cancel}}
     {{/if}}
   </div>
 </template>
 
-<template name="add">
-    <button class="ev-button" type="button" id="ev_add">Ajouter un article !</button>
-</template>
-
-<template name="scan">
-    <button class="ev-button" type="button" id="ev_scan">Scanner un article !</button>
-</template>
-
 <template name="cancel">
-    <button class="ev-button" type="button" id="ev_cancel">Annuler.</button>
-</template>
-
-<template name="validate">
-  <button class="ev-button" type="submit" id="ev_submitForm">Valider !</button>
+  <button class="ev-button" type="button" id="ev_cancel">Annuler.</button>
 </template>
