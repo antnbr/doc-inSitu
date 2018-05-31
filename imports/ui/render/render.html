@@ -1,17 +1,15 @@
 <template name="render">
-  <div id="content-target">
-    <div class="articles-wrapper">
-      {{#each articles}}
-        {{> article}}
-      {{/each}}
-    </div>
-    <div class="pictures-wrapper" id="pictures">
-      {{#each pictures}}
-        {{> picture}}
-      {{/each}}
-    </div>
-    {{> buttons}}
+  <div class="articles-wrapper">
+    {{#each articles}}
+      {{> article}}
+    {{/each}}
   </div>
+  <div class="pictures-wrapper" id="pictures">
+    {{#each pictures}}
+      {{> picture}}
+    {{/each}}
+  </div>
+  {{> buttons}}
 </template>
 
 <template name="article">

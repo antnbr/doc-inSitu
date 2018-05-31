@@ -9,16 +9,18 @@
 </body>
 
 <template name="content">
-  {{#if page "render"}}
-    {{> render}}
-  {{/if}}
-  {{#if page "edit"}}
-    {{> editor}}
-  {{/if}}
-  {{#if page "scan"}}
-    {{> scanner}}
-  {{/if}}
-  {{#if page "print"}}
-    {{> print}}
-  {{/if}}
+  <div id="content-target">
+    {{#if page "render"}}
+      {{> render}}
+    {{/if}}
+    {{#if page "edit"}}
+      {{> editor}}
+    {{/if}}
+    {{#if page "scan"}}
+      {{> scanner}}
+    {{/if}}
+    {{#if page "print"}}
+      {{> printer}}
+    {{/if}}
+  </div>
 </template>
