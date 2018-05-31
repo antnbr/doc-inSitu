@@ -63,6 +63,11 @@ header h1 {
   flex-grow: 1;
 }
 
+#content-target {
+  margin: 2em;
+  overflow-y: scroll;
+}
+
 .articles-wrapper {
   margin-top: 2em;
   display: grid;
@@ -70,12 +75,7 @@ header h1 {
   grid-gap: 1em;
 }
 
-#content {
-  margin: 2em;
-  overflow-y: scroll;
-}
-
-.article-wrapper {
+.article {
   padding: 0.5em;
   display: flex;
   flex-direction: column;
@@ -84,23 +84,18 @@ header h1 {
   border: solid black 4px;
 }
 
-.article-wrapper.story {
-  grid-column-end: 1 / 2;
-  grid-row-end: 1 / 2;
-}
-
-.article-wrapper > .title {
+.article > .title {
   font-size: 1.7em;
   font-weight: bold;
 }
 
-.article-wrapper > .authname, .article-wrapper > .authinfo {
+.article > .authname, .article > .authinfo {
   font-size: 0.8em;
   font-style: italic;
   color: #555;
 }
 
-.article-wrapper > .createdAt {
+.article > .createdAt {
   font-size: 0.8em;
   color: red;
 }
@@ -171,6 +166,30 @@ header h1 {
     4px 4px crimson,
     5px 5px crimson,
     6px 6px crimson;
+}
+
+.ev-button#ev_capture {
+  color: deeppink;
+  border: solid deeppink 4px;
+  box-shadow:
+    1px 1px deeppink,
+    2px 2px deeppink,
+    3px 3px deeppink,
+    4px 4px deeppink,
+    5px 5px deeppink,
+    6px 6px deeppink;
+}
+
+.ev-button#ev_save {
+  color: mediumslateblue;
+  border: solid mediumslateblue 4px;
+  box-shadow:
+    1px 1px mediumslateblue,
+    2px 2px mediumslateblue,
+    3px 3px mediumslateblue,
+    4px 4px mediumslateblue,
+    5px 5px mediumslateblue,
+    6px 6px mediumslateblue;
 }
 
 .editorForm {
@@ -255,23 +274,29 @@ header h1 {
 }
 
 .scanner-wrapper {
+  margin: 2em;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   align-content: center;
 }
 
 .scanner-wrapper video {
-  transform-origin: top left;
-  transform: rotate(-90deg) translate(-100%);
+  border: solid 4px black;
 }
 
 .scanner-wrapper canvas {
-  transform-origin: top left;
-  transform: rotate(-90deg) translate(-100%);
+  border: solid 4px deeppink;
 }
 
-.scanner-wrapper.capture-button {
+.canvas-wrapper {
   display: flex;
-  flex-direction: row;
-  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: baseline;
+}
+
+.canvas-wrapper > input {
+  margin-top: 2em;
 }
