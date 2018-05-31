@@ -31,7 +31,7 @@ Ce projet est une application d'écriture collaborative pour une expérience de 
 
 + Scanner
   - [x] Intégrer Webcam
-  - [ ] Enregistrer capture dans "pictures"
+  - [x] Enregistrer capture dans "pictures"
   - [ ] Intégrer les images au layout
 
 + Impression
