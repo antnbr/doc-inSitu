@@ -51,19 +51,20 @@ Template.editor.events({
     mode.set("articles");
   },
 
-  'keydown textarea': (event) => {
-    autoExpand(event.target);
+  'keydown textarea': (ev) => {
+    autoExpand(ev.target);
   },
 
-  'onpaste textarea': (event) => {
-    autoExpand(event.target);
+  'onpaste textarea': (ev) => {
+    autoExpand(ev.target);
   },
 
-  'submit .editorForm': (event, instance) => {
+  'submit .editorForm': (ev, inst) => {
     // prevent 'submit' default behavior
-    event.preventDefault();
+    ev.preventDefault();
 
-    const t = event.target
+    const t = ev.target
+    // console.log(t);
     const title = t.title.value.trim();
     const text = t.text.value.trim();
     const authname = t.authname.value.trim();
@@ -71,31 +72,31 @@ Template.editor.events({
     const type = t.type.value;
 
     // reset reactive-var states
-    instance.titleIsValid.set(true);
-    instance.authnameIsValid.set(true);
-    instance.textIsValid.set(true);
-    instance.authinfoIsValid.set(true);
-    instance.typeIsValid.set(true);
+    inst.titleIsValid.set(true);
+    inst.authnameIsValid.set(true);
+    inst.textIsValid.set(true);
+    inst.authinfoIsValid.set(true);
+    inst.typeIsValid.set(true);
 
     // checks if all fields are filled before collecting data
-    if (title === '') instance.titleIsValid.set(false);
-    if (text === '') instance.textIsValid.set(false);
-    if (authname === '') instance.authnameIsValid.set(false);
-    if (authinfo === '') instance.authinfoIsValid.set(false);
-    if (type === '') instance.typeIsValid.set(false);
+    if (title === '') inst.titleIsValid.set(false);
+    if (text === '') inst.textIsValid.set(false);
+    if (authname === '') inst.authnameIsValid.set(false);
+    if (authinfo === '') inst.authinfoIsValid.set(false);
+    if (type === '') inst.typeIsValid.set(false);
 
     // ---> load article
     if (title !== '' && text !== '' && authname !== '' && authinfo !== '' && type !== '') {
       let article = {
-        type: type,
+        articleType: type,
         title: title,
         text: text,
         authname: authname,
         authinfo: authinfo
-      }
+      };
 
       Meteor.call('insertArticle', article);
-      mode.set("articles");
+      mode.set("render");
     }
   }
 });
