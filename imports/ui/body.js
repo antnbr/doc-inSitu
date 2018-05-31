@@ -8,6 +8,7 @@ import './buttons/buttons.js';
 import './render/render.js';
 import './editor/editor.js';
 import './scanner/scanner.js';
+import './printer/printer.js';
 // import './print/print.js';
 
 export let mode = new ReactiveVar("render");
