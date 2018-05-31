@@ -14,12 +14,16 @@ Template.buttons.helpers({
 });
 
 Template.buttons.events({
-  'click #ev_add': () => {
+  'click #ev_write': () => {
     mode.set("edit");
   },
 
   'click #ev_scan': () => {
     mode.set("scan");
+  },
+
+  'click #ev_print': () => {
+    mode.set("print");
   }
 });
 

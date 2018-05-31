@@ -103,7 +103,7 @@ header h1 {
 .button-wrapper {
   position: fixed;
   right: 6px;
-  bottom: 0;
+  bottom: 6px;
   z-index: 1;
 
   margin-right: 2em;
@@ -120,7 +120,7 @@ header h1 {
   margin-left: 1em;
 }
 
-.ev-button#ev_add {
+.ev-button#ev_write {
   color: blue;
   border: solid blue 4px;
   box-shadow:
@@ -144,7 +144,19 @@ header h1 {
     6px 6px cyan;
 }
 
-.ev-button#ev_submitForm {
+.ev-button#ev_print {
+  color: turquoise;
+  border: solid turquoise 4px;
+  box-shadow:
+    1px 1px turquoise,
+    2px 2px turquoise,
+    3px 3px turquoise,
+    4px 4px turquoise,
+    5px 5px turquoise,
+    6px 6px turquoise;
+}
+
+.ev-button#ev_submit {
   color: mediumspringgreen;
   border: solid mediumspringgreen 4px;
   box-shadow:
