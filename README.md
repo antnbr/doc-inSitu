@@ -23,12 +23,17 @@ Ce projet est une application d'écriture collaborative pour une expérience de 
   - rdv à l'adresse [](http://localhost:monPort)
 
 ## To-Do List
-+ CLIENT
-  - [ ] éditeur d'Articles
-  - [ ] layout du rendu des articles
-  - [ ] template *login* au début d'une session
-  - [ ] resize des articles
++ Articles
+  - [x] éditeur d'Articles
+  - [ ] Intégrer l'éditeur aux rendu des articles
+  - [ ] Layout CSS Grid des articles en fonction du type
+  - [ ] Styling en fonction des tags ?
 
-+ SERVER
-  - [ ] une collection par type d'articles
-  - [ ] gestion des utilisateurs
++ Scanner
+  - [x] Intégrer Webcam
+  - [ ] Enregistrer capture dans "pictures"
+  - [ ] Intégrer les images au layout
+
++ Impression
+  - [ ] Vue d'une page sur meteor
+  - [ ] Intégrer le code HTML des articles dans la page
