@@ -23,15 +23,13 @@ Template.scanner.onRendered(function() {
 
   canvas.width = width;
   canvas.height = height;
-  this.canvas = canvas;
 
-  video.style.width = document.width + 'px';
-  video.style.height = document.height + 'px';
-  video.setAttribute('autoplay', '');
-  video.setAttribute('muted', '');
-  video.setAttribute('playsinline', '');
+  video.setAttribute('autoplay', 'true');
+  video.setAttribute('muted', 'true');
+  video.setAttribute('playsinline', 'true');
 
   this.video = video;
+  this.canvas = canvas;
 
   // Put variables in global scope to make them available to the browser console.
   var constraints = window.constraints = {
