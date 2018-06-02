@@ -4,22 +4,12 @@
       {{> article}}
     {{/each}}
   </div>
-  <div class="pictures-wrapper" id="pictures">
+  <div class="pictures-wrapper">
     {{#each pictures}}
       {{> picture}}
     {{/each}}
   </div>
   {{> buttons}}
-</template>
-
-<template name="article">
-  <div class="article {{articleType}}">
-    <span class="title">{{title}}</span>
-    <p class="text">{{text}}</p>
-    <span class="authname">{{authname}}</span>
-    <span class="authinfo">{{authinfo}}</span>
-    <span class="createdAt">{{newTimestamp}}</span>
-  </div>
 </template>
 
 <template name="picture">
