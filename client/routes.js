@@ -1,7 +1,7 @@
-import { mode } from '/imports/ui/body.js'; 
+import { mode } from '/imports/ui/body.js';
 
 FlowRouter.route('/print', {
-    action: function(params, queryParams) {
+    action: (params, queryParams) => {
         mode.set("print");
     }
 });
