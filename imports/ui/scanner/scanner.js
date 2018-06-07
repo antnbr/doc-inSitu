@@ -4,7 +4,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import base64Regex from 'base64-regex';
 
 import './scanner.html';
-import { mode } from '../body.js';
+import '/imports/ui/buttons/buttons.js';
+import { mode } from '/imports/ui/body.js';
 
 export let isCaptured = new ReactiveVar(false);
 var width = 640;

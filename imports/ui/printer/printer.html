@@ -1,11 +1,18 @@
 <template name="printer">
-  {{#each pages}}
-    {{> page}}
-  {{/each}}
+  {{> buttons}}
+  <div id="pages">
+    {{#each pages}}
+      {{> page}}
+    {{/each}}
+  </div>
 </template>
 
 <template name="page">
   <div class="page" id="page-{{pNumber}}">
+    <div class="pageHeader">
+      <span>- le journal -</span>
+    </div>
+
     {{> article}}
   </div>
 </template>

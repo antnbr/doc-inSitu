@@ -4,8 +4,8 @@ import { moment } from 'meteor/momentjs:moment';
 import { Articles } from '/imports/api/lists.js';
 import { Pictures } from '/imports/api/lists.js';
 import './render.html';
-import '../article/article.js';
-import '../buttons/buttons.js';
+import '/imports/ui/article/article.js';
+import '/imports/ui/buttons/buttons.js';
 
 Template.render.helpers({
   articles() {

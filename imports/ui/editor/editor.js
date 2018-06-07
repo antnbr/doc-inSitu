@@ -5,8 +5,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 // import { Articles } from '/imports/api/lists.js';
 import './editor.html';
 import '/imports/api/methods.js';
-import '../buttons/buttons.js';
-import { mode } from '../body.js';
+import '/imports/ui/buttons/buttons.js';
+import { mode } from '/imports/ui/body.js';
 import { maxLengths } from '/imports/api/lists.js';
 
 function autoExpand(target) {

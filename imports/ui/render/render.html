@@ -1,4 +1,5 @@
 <template name="render">
+  {{> buttons}}
   <div class="articles-wrapper">
     {{#each articles}}
       {{> article}}
@@ -9,7 +10,6 @@
       {{> picture}}
     {{/each}}
   </div>
-  {{> buttons}}
 </template>
 
 <template name="picture">
