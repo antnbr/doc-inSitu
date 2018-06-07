@@ -24,8 +24,7 @@ header {
 }
 
 header h1 {
-  font-size: 80px;
-  font-family: 'gulax';
+  font-size: 60px;
   margin: 0.25em;
   color: #000;
   text-align: center;
@@ -101,11 +100,6 @@ header h1 {
 }
 
 .button-wrapper {
-  position: fixed;
-  right: 6px;
-  bottom: 6px;
-  z-index: 1;
-
   margin-right: 2em;
   margin-bottom: 2em;
   display: flex;

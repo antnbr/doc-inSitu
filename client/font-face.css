@@ -45,14 +45,3 @@
   font-weight: 700;
   font-style: normal;
 }
-
-@font-face {
-    font-family: 'gulax';
-    src: url('/fonts/gulax/gulax-webfont.eot');
-    src: url('/fonts/gulax/gulax-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/gulax/gulax-webfont.woff') format('woff'),
-         url('/fonts/gulax/gulax-webfont.ttf') format('truetype'),
-         url('/fonts/gulax/gulax-webfont.svg#vtf_gulaxregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}

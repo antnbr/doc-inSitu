@@ -1,5 +1,6 @@
 <template name="editor">
   <form class="editorForm">
+    {{> buttons}}
     <h2>Votre article :</h2>
     <div class="radio-wrapper">
       <label class="radioLab">
@@ -31,7 +32,5 @@
 
     <textarea class="authinfo {{#unless authinfoIsValid}}empty{{/unless}}"
     name="authinfo" rows="3" cols="80" maxlength="{{max 'authinfo'}}" placeholder="Quelques infos sur vous..."></textarea>
-
-    {{> buttons}}
   </form>
 </template>

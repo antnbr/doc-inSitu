@@ -2,14 +2,14 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 // import { ReactiveDict } from 'meteor/reactive-dict';
 
+// try to always use absolute path instead of relative path.
+// use relative path only to get html file.
 import './body.html';
-import './infobar/infobar.js';
-import './buttons/buttons.js';
-import './render/render.js';
-import './editor/editor.js';
-import './scanner/scanner.js';
-import './printer/printer.js';
-// import './print/print.js';
+import '/imports/ui/infobar/infobar.js';
+import '/imports/ui/render/render.js';
+import '/imports/ui/editor/editor.js';
+import '/imports/ui/scanner/scanner.js';
+import '/imports/ui/printer/printer.js';
 
 export let mode = new ReactiveVar("render");
 
