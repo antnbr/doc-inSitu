@@ -2,9 +2,12 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 // import { ReactiveDict } from 'meteor/reactive-dict';
 
-// try to always use absolute path instead of relative path.
-// use relative path only to get html file.
+// IDEA: always use absolute path instead of relative path when importing.
+// ----- use relative path only to get html file.
+
+// --- api functions and html --- //
 import './body.html';
+// --- ui components --- //
 import '/imports/ui/infobar/infobar.js';
 import '/imports/ui/render/render.js';
 import '/imports/ui/editor/editor.js';

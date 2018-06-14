@@ -1,9 +1,13 @@
 <template name="buttons">
   <div class="button-wrapper">
+    {{> mainBtns}}  
     {{#if mode "render"}}
-      <button class="ev-button" type="button" id="ev_write">Ajouter un article !</button>
-      <button class="ev-button" type="button" id="ev_scan">Scanner un article !</button>
-      <button class="ev-button" type="button" id="ev_print">Imprimer le journal !</button>
+      <div class="sortBtns">
+        <button type="button" id="ev_tag">tags</button>
+        <button type="button" id="ev_author">auteurs</button>
+        <button type="button" id="ev_time">chronologie</button>
+        <button type="button" id="ev_revTime">plus récent</button>
+      </div>
     {{/if}}
     {{#if mode "edit"}}
       <button class="ev-button" type="submit" id="ev_submit">Valider !</button>
@@ -23,6 +27,10 @@
   </div>
 </template>
 
-<template name="cancel">
-  <button class="ev-button" type="button" id="ev_cancel">Annuler.</button>
+<template name="mainBtns">
+  <div class="mainBtns">
+    <button type="button" id="ev_write">Écrire</button>
+    <button type="button" id="ev_scan">Scanner</button>
+    <button type="button" id="ev_print">Imprimer</button>
+  </div>
 </template>

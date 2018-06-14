@@ -1,6 +1,7 @@
+// --- packages --- //
 import { Template } from 'meteor/templating';
 import { moment } from 'meteor/momentjs:moment';
-
+// --- html --- //
 import './article.html';
 
 Template.article.helpers({

@@ -1,9 +1,12 @@
+// --- packages --- //
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import base64Regex from 'base64-regex';
 
+// --- api and html --- //
 import './scanner.html';
+// --- ui components --- //
 import '/imports/ui/buttons/buttons.js';
 import { mode } from '/imports/ui/body.js';
 
@@ -11,12 +14,12 @@ export let isCaptured = new ReactiveVar(false);
 var width = 640;
 var height = 480;
 
-// --- set reactive-var -- //
+// set reactive-var
 Template.scanner.onCreated(function() {
   isCaptured.set(false);
 })
 
-// --- load stream into video element --- //x
+// load stream into video element
 Template.scanner.onRendered(function() {
   var errorElement = document.querySelector('#errorMsg');
   var video = document.querySelector('video');
@@ -88,7 +91,7 @@ Template.scanner.helpers({
   }
 });
 
-// --- Capture image of video stream --- //
+// capture image of video stream
 Template.scanner.events({
   'click #ev_capture': (ev, temp) => {
     canvas.getContext('2d').drawImage(temp.video, 0, 0, width, height);
