@@ -13,6 +13,13 @@ Template.buttons.helpers({
   }
 });
 
+Template.mainBtns.helpers({
+  active() {
+    // simply returns true when app is not on "rendering articles" mode.
+    return (mode.get() !== "render") ? true : false;
+  }
+});
+
 Template.buttons.events({
   'click #ev_write': () => {
     mode.set("edit");
@@ -24,11 +31,5 @@ Template.buttons.events({
 
   'click #ev_print': () => {
     mode.set("print");
-  }
-});
-
-Template.cancel.events({
-  'click #ev_cancel': () => {
-    mode.set("render");
   }
 });

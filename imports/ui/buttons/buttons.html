@@ -1,6 +1,6 @@
 <template name="buttons">
   <div class="button-wrapper">
-    {{> mainBtns}}  
+    {{> mainBtns}}
     {{#if mode "render"}}
       <div class="sortBtns">
         <button type="button" id="ev_tag">tags</button>
@@ -29,8 +29,8 @@
 
 <template name="mainBtns">
   <div class="mainBtns">
-    <button type="button" id="ev_write">Écrire</button>
-    <button type="button" id="ev_scan">Scanner</button>
-    <button type="button" id="ev_print">Imprimer</button>
+    <button type="button" id="ev_write">{{#if active}}&times; {{/if}}Écrire</button>
+    <button type="button" id="ev_scan">{{#if active}}&times; {{/if}}Scanner</button>
+    <button type="button" id="ev_print">{{#if active}}&times; {{/if}}Imprimer</button>
   </div>
 </template>
