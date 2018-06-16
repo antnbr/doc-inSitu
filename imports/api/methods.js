@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
+// import { check } from 'meteor/check';
 
 import { Articles } from './lists.js';
 import { Pictures } from './lists.js';
