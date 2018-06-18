@@ -1,0 +1,209 @@
+/* CSS Declarations */
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100%;
+
+  font-family: 'Fira Code';
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+header h1 {
+  font-size: 50px;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+.infobar {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.infobar span {
+  margin: 0.5em;
+  font-size: 10px;
+}
+
+.buttons > .mainBtns {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  padding-right: 10em;
+  padding-left: 10em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+
+.buttons > .mainBtns span {
+  border: solid 2px black;
+  height: 100%;
+  display: inline-flex;
+
+  margin: -2px;
+  margin-right: 0;
+  padding: 0.25em 10em 0.25em 8em;
+}
+
+.buttons > .mainBtns button {
+  background-color: white;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.butotns > .mainBtns span:hover button {
+  color: white;
+  background-color: black;
+}
+
+#content-target {
+  margin: 2em;
+  overflow-y: scroll;
+}
+
+.articles-wrapper {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+
+.article {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+
+  border: solid black 4px;
+}
+
+.article > .title {
+  font-size: 1.7em;
+  font-weight: 400;
+}
+
+.article > .authname, .article > .authinfo {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #555;
+}
+
+.article > .createdAt {
+  font-size: 0.8em;
+  color: red;
+}
+
+.editorForm {
+  margin: 0 10em;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-wrapper {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.radioLab {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radioLab input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  padding: 0.5em 1em 0.5em 1em;
+  margin-right: 0.5em;
+  color: #aaa;
+  border: solid 2px #aaa;
+}
+
+.radioLab:hover input ~ .checkmark {
+  color: black;
+  border: solid 2px black;
+}
+
+.radioLab input:checked ~ .checkmark {
+  color: black;
+  border: solid 2px black;
+}
+
+.radioLab input:checked ~ .checkmark > span {
+  border-bottom: solid 2px black;
+}
+
+.editorForm > input:not(.validateButton) {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 2px #aaa;
+
+  color: black;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.editorForm > input.title {
+  border-bottom: none;
+}
+
+.editorForm > input.authname {
+  border-bottom: none;
+  border-top: none;
+}
+
+.editorForm textarea {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 2px #aaa;
+  overflow: hidden;
+
+  font-family: inherit;
+  font-size: inherit;
+  resize: none;
+}
+
+.scanner-wrapper {
+  margin: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.scanner-wrapper video {
+  border: solid 4px black;
+}
+
+.scanner-wrapper canvas {
+  border: solid 4px deeppink;
+}
+
+.canvas-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: baseline;
+}
+
+.canvas-wrapper > input {
+  margin-top: 2em;
+}
