@@ -13,6 +13,7 @@ import '/imports/ui/render/render.js';
 import '/imports/ui/editor/editor.js';
 import '/imports/ui/scanner/scanner.js';
 import '/imports/ui/printer/printer.js';
+import '/imports/ui/buttons/buttons.js';
 
 export let mode = new ReactiveVar("render");
 
