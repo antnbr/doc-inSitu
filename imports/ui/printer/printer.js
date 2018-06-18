@@ -3,7 +3,6 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import { Articles } from '/imports/api/lists.js';
 import './printer.html';
-import '/imports/ui/buttons/buttons.js';
 
 let pageCounter = 0;
 

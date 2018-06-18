@@ -7,7 +7,6 @@ import { Pictures } from '/imports/api/lists.js';
 import './render.html';
 // --- ui components --- //
 import '/imports/ui/article/article.js';
-import '/imports/ui/buttons/buttons.js';
 
 Template.render.helpers({
   articles() {
@@ -20,6 +19,5 @@ Template.render.helpers({
 });
 
 Template.render.events({
-  'mousedown .article': () => {
-  }
+  // drag and drop articles ?
 })

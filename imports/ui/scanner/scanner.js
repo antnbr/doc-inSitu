@@ -7,7 +7,6 @@ import base64Regex from 'base64-regex';
 // --- api and html --- //
 import './scanner.html';
 // --- ui components --- //
-import '/imports/ui/buttons/buttons.js';
 import { mode } from '/imports/ui/body.js';
 
 export let isCaptured = new ReactiveVar(false);
