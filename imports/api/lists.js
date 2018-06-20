@@ -5,23 +5,22 @@ import SimpleSchema from 'simpl-schema';
 // --- Lists declarations --- //
 export const Articles = new Mongo.Collection('articles');
 export const Pictures = new Mongo.Collection('pictures');
+export const Tags = new Mongo.Collection('tags');
+export const Authors = new Mongo.Collection('authors');
 
 export const maxLengths = {
   title: 100,
   text: 5000,
-  authname: 30,
-  authinfo: 200,
+  author: 30,
   legend: 200,
+  tag: 50,
+  color: 7
 };
 
 // --- Schemas for lists --- //
 const Schemas = {};
 
 Schemas.Articles = new SimpleSchema({
-  articleType: {
-    type: String,
-    label: "Type"
-  },
   title: {
     type: String,
     label: "Title",
@@ -32,15 +31,19 @@ Schemas.Articles = new SimpleSchema({
     label: "Text",
     max: maxLengths.text
   },
-  authname: {
+  author: {
     type: String,
     label: "Author Name",
-    max: maxLengths.authname
+    max: maxLengths.author
   },
-  authinfo: {
+  tags: {
+    type: Array,
+    label: "Tags",
+    max: maxLengths.authInfo
+  },
+  'tags.$': {
     type: String,
-    label: "Author Info",
-    max: maxLengths.authinfo
+    max: maxLengths.tag
   },
   timestamp: {
     type: Date,
@@ -74,8 +77,38 @@ Schemas.Pictures = new SimpleSchema({
   }
 });
 
+Schemas.Tags = new SimpleSchema({
+  name: {
+    type: String,
+    label: "Tag",
+    max: maxLengths.tag
+  },
+  color: {
+    type: String,
+    label: "Color",
+    autoValue: function() {
+      if (this.isInsert) {
+        var hue = 'rgb(' + Math.floor(Math.random() * (256 - 100) + 100) + ', '
+                         + Math.floor(Math.random() * (256 - 100) + 100) + ', '
+                         + Math.floor(Math.random() * (256 - 100) + 100) + ')';
+        return hue;
+      }
+    }
+  }
+});
+
+Schemas.Authors = new SimpleSchema({
+  name: {
+    type: String,
+    label: "Author",
+    max: maxLengths.authName
+  }
+});
+
 Articles.attachSchema(Schemas.Articles);
 Pictures.attachSchema(Schemas.Pictures);
+Tags.attachSchema(Schemas.Tags);
+Authors.attachSchema(Schemas.Authors);
 
 if (Meteor.isServer) {
   // Allow publication of 'articles'
@@ -84,5 +117,11 @@ if (Meteor.isServer) {
   });
   Meteor.publish('pictures', () => {
     return Pictures.find({});
+  });
+  Meteor.publish('tags', () => {
+    return Tags.find({});
+  });
+  Meteor.publish('authors', () => {
+    return Authors.find({});
   });
 }
