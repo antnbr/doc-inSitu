@@ -1,7 +1,8 @@
 <template name="scanner">
+  {{> homeBtn}}
   <span id="errorMsg"></span>
   <div class="scanner-wrapper">
-    <video id="gum-local"></video>
+    <video width="480" height="320" id="gum-local"></video>
     <div class="canvas-wrapper">
       <canvas id="canvas"></canvas>
       {{#if isCaptured}}
@@ -9,4 +10,9 @@
       {{/if}}
     </div>
   </div>
+  <button type="button" id="ev_validate">OK!</button>
+</template>
+
+<template name="validate">
+  <button type="button" name="button"></button>
 </template>

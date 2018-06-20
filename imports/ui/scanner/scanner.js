@@ -8,10 +8,11 @@ import base64Regex from 'base64-regex';
 import './scanner.html';
 // --- ui components --- //
 import { mode } from '/imports/ui/body.js';
+import '/imports/ui/buttons/buttons.js';
 
 export let isCaptured = new ReactiveVar(false);
-var width = 640;
-var height = 480;
+var width = 320;
+var height = 240;
 
 // set reactive-var
 Template.scanner.onCreated(function() {
