@@ -21,6 +21,8 @@ export let mode = new ReactiveVar("render");
 Template.body.onCreated(function() {
   Meteor.subscribe('articles');
   Meteor.subscribe('pictures');
+  Meteor.subscribe('tags');
+  Meteor.subscribe('authors');
 });
 
 Template.content.helpers({
