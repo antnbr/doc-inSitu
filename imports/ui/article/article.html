@@ -1,9 +1,24 @@
 <template name="article">
-  <div class="article {{articleType}}">
-    <span class="title">{{title}}</span>
-    <p class="text">{{text}}</p>
-    <span class="authname">{{authname}}</span>
-    <span class="authinfo">{{authinfo}}</span>
-    <span class="createdAt">{{newTimestamp}}</span>
+  <div class="article">
+    <div class="articleContent">
+      <span class="articleInfos">
+        {{#each articleTags}}{{> articleTag}}{{else}}&nbsp;{{/each}}
+        <span>{{author}}</span>
+        <span>{{newTimestamp}}</span>
+      </span>
+      <div class="articleText">
+        <span class="title">{{title}}</span>
+        <p class="text">{{text}}</p>
+      </div>
+    </div>
+    <div class="comments">
+      <!-- some comments -->
+    </div>
   </div>
+</template>
+
+<template name="articleTag">
+  {{#if Template.subscriptionsReady}}
+    <span class="tagName" style="{{background}}">{{tag}}</span>
+  {{/if}}
 </template>

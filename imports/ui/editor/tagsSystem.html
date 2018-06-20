@@ -1,0 +1,13 @@
+<template name="tag">
+  <label class="checkbox">
+    <input id="{{_id}}" type="checkbox" class="tag" value="{{name}}" form="editorForm"/>
+    <span class="checkmark">{{name}}</span>
+  </label>
+</template>
+
+<template name="author">
+  <label class="checkbox">
+    <input id="{{_id}}" type="radio" name="author" value="{{name}}" form="editorForm"/>
+    <span class="checkmark">{{name}}</span>
+  </label>
+</template>
