@@ -1,7 +1,11 @@
 <!-- information about the event the log is talking about -->
 <template name="infobar">
+  {{#if Template.subscriptionsReady}}
   <div class="infobar">
-    <span>{{firstPost}} ==> {{lastPost}}</span>
-    <span>Mis à jour à {{lastUpdate}}</span>
+    {{#if hasArticles}}
+      <span>{{firstPost}} ==> {{lastPost}}</span>
+      <span>Mis à jour à {{lastUpdate}}</span>
+    {{/if}}
   </div>
+  {{/if}}
 </template>

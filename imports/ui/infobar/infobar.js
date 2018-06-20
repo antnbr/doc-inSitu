@@ -5,7 +5,15 @@ import './infobar.html';
 import { Articles } from '/imports/api/lists.js';
 import { Pictures } from '/imports/api/lists.js';
 
+Template.infobar.onCreated(function() {
+  this.subscribe('articles');
+});
+
 Template.infobar.helpers({
+  hasArticles() {
+    return Articles.find().count() !== 0;
+  },
+
   firstPost() {
     let first = Articles.findOne({}, { sort: { timestamp: 1 }});
     // console.log(first);

@@ -1,10 +1,15 @@
 <template name="render">
-  <div class="articles-wrapper">
+  {{> sortBtns}}
+  {{# if noArticles}}
+    <div class="welcomeMsg">
+      <p>Aucun article écrit.</p>
+      <button type="button" id="ev_newArticle">==> Ajouter un article !</button>
+    </div>
+  {{/if}}
+  <div class="content">
     {{#each articles}}
       {{> article}}
     {{/each}}
-  </div>
-  <div class="pictures-wrapper">
     {{#each pictures}}
       {{> picture}}
     {{/each}}
