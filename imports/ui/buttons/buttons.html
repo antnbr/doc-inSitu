@@ -1,54 +1,28 @@
-<template name="buttons">
-  <div class="buttons">
-    {{> mainBtns}}
-
-    <!-- sorting buttons -->
-    {{#if mode "render"}}
-      <div class="sortBtns">
-        <button type="button" id="ev_rev">plus récent</button>
-        <button type="button" id="ev_chrono">chronologie</button>
-        <button type="button" id="ev_tags">tags</button>
-        <button type="button" id="ev_auhtors">auteurs</button>
-      </div>
-    {{/if}}
-
-    <!-- {{#if mode "edit"}}
-      <button class="ev-button" type="submit" id="ev_submit">Valider !</button>
-      {{> cancel}}
-    {{/if}}
-    {{#if mode "scan"}}
-      {{#if isCaptured}}
-        <button class="ev-button" type="button" id="ev_save">Enregistrer !</button>
-      {{/if}}
-      <button class="ev-button" type="button" id="ev_capture">Scan...</button>
-      {{> cancel}}
-    {{/if}}
-    {{#if mode "print"}}
-      <button class="ev-button" type="button" id="ev_print">Imprimer !</button>
-      {{> cancel}}
-    {{/if}} -->
-  </div>
-</template>
-
 <template name="mainBtns">
   <div class="mainBtns">
-    <div class="mainBtns-wrapper">
-      <span>
-        {{#if activeMode "edit"}}{{> cancelBtn}}{{/if}}
-        <button type="button" id="ev_write">Écrire</button>
-      </span>
-      <span>
-        {{#if activeMode "scan"}}{{> cancelBtn}}{{/if}}
-        <button type="button" id="ev_scan">Scanner</button>
-      </span>
-      <span>
-        {{#if activeMode "print"}}{{> cancelBtn}}{{/if}}
-        <button type="button" id="ev_print">Imprimer</button>
-      </span>
-    </div>
+    <span class="flexible-space"></span>
+    <span class="button-container {{#if isSelected 'write'}}isSelected{{/if}}">
+      <button type="button" id="ev_write">Écrire</button>
+    </span>
+    <span class="button-container {{#if isSelected 'scan'}}isSelected{{/if}}">
+      <button type="button" id="ev_scan">Scanner</button>
+    </span>
+    <span class="button-container {{#if isSelected 'print'}}isSelected{{/if}}">
+      <button type="button" id="ev_print">Imprimer</button>
+    </span>
+    <span class="flexible-space"></span>
   </div>
 </template>
 
-<template name="cancelBtn">
-  <button type="button" id="ev_cancel">&times;</button>
+<template name="sortBtns">
+  <div class="sortBtns">
+    <button type="button" id="ev_rev">plus récent</button>
+    <button type="button" id="ev_chrono">chronologie</button>
+    <button type="button" id="ev_tags">tags</button>
+    <button type="button" id="ev_auhtors">auteurs</button>
+  </div>
+</template>
+
+<template name="homeBtn">
+  <button type="button" id="ev_home">&lt;==</button>
 </template>
