@@ -1,35 +1,31 @@
 <template name="editor">
-  <form class="editorForm">
-    <h2>Votre article :</h2>
-    <div class="radio-wrapper">
-      <label class="radioLab">
-        <input type="radio" name="type" checked="checked" value="histoire">
-        <span class="checkmark"><span>Histoire</span></span>
-      </label>
-      <label class="radioLab">
-        <input type="radio" name="type" value="descritpion">
-        <span class="checkmark"><span>Description</span></span>
-      </label>
-      <label class="radioLab">
-        <input type="radio" name="type" value="avis">
-        <span class="checkmark"><span>Avis</span></span>
-      </label>
-      <label class="radioLab">
-        <input type="radio" name="type" value="humeur">
-        <span class="checkmark"><span>Humeur</span></span>
-      </label>
-    </div>
+  {{> homeBtn}}
+  <div class="editor">
+    {{> textChoice}}
+    <form id="editorForm"></form>
+      <input class="title {{#unless titleIsValid}}empty{{/unless}}" form="editorForm"
+      type="text" name="title" maxlength="{{max 'title'}}" placeholder="Titre..."/>
 
-    <input class="title {{#unless titleIsValid}}empty{{/unless}}"
-    type="text" name="title" maxlength="{{max 'title'}}" placeholder="Titre..."/>
+      <textarea class="text {{#unless textIsValid}}empty{{/unless}}" form="editorForm"
+      name="text" rows="10" cols="80" maxlength="{{max 'text'}}" placeholder="Texte..."></textarea>
 
-    <textarea class="text {{#unless textIsValid}}empty{{/unless}}"
-    name="text" rows="10" cols="80" maxlength="{{max 'text'}}" placeholder="Texte..."></textarea>
+      <div class="tags">
+        {{#each tags}}
+          {{> tag}}
+        {{/each}}
+        <form id="newTag"></form>
+          <input class="tag {{#unless tagIsValid}}empty{{/unless}}" form="newTag"
+          type="text" name="tag" maxlength="{{max 'tag'}}" placeholder="=> Nouveau tag" />
+      </div>
 
-    <input class="authname {{#unless authnameIsValid}}empty{{/unless}}"
-    type="text" name="authname" maxlength="{{max 'authname'}}" placeholder="Votre nom d'auteur..."/>
-
-    <textarea class="authinfo {{#unless authinfoIsValid}}empty{{/unless}}"
-    name="authinfo" rows="3" cols="80" maxlength="{{max 'authinfo'}}" placeholder="Quelques infos sur vous..."></textarea>
-  </form>
+      <div class="authors">
+        {{#each authors}}
+          {{> author}}
+        {{/each}}
+        <form id="newAuthor"></form>
+          <input class="author {{#unless authnameIsValid}}empty{{/unless}}" form="newAuthor"
+          type="text" name="author" maxlength="{{max 'authname'}}" placeholder="=> Nouvel auteur"/>
+      </div>
+  </div>
+  <input class="validate" type="submit" value="OK!" form="editorForm"/>
 </template>
