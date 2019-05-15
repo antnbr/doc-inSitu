@@ -210,6 +210,10 @@ header h1 {
   margin: 0.75em 0 0 0;
 }
 
+.articleText > span.title {
+  font-weight: bold;
+}
+
 /* 2.2.2 - comments "stack" effect */
 .comments {
   flex-grow: 1;
